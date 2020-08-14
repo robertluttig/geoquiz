@@ -1,68 +1,88 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Create React Express App
 
-## Available Scripts
+## About This Boilerplate
 
-In the project directory, you can run:
+This setup allows for a Node/Express/React/JWT app which can be easily deployed to Heroku.
 
-### `npm start`
+The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+An article on how the server is setup with JWT can be found [here](https://hptechblogs.com/using-json-web-token-for-authentication/). This has been modified to use a mongo database instead of hardcoded array of users.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The front end has been setup to use JWT as a way of authenticating users and routes. To understand it's structure better please refer to the following article [here](https://hptechblogs.com/using-json-web-token-react/)
 
-### `npm test`
+Please feel free to modify this code in anyway you see fit for your project. It is a boilerplate setup that tries to make sure you can get something up and running without having to worry about setting up user authentication from scratch.
+I highly suggest you read the articles before jumping in so you can have an better understanding of how everything works in the code.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Server-side article and using JWT: https://hptechblogs.com/using-json-web-token-for-authentication/
 
-### `npm run build`
+Front End article on using the JWT on a react application: https://hptechblogs.com/using-json-web-token-react/
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Starting the app locally
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Add a .env at the top level of this project.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then inside of the .env add a SERVER_SECRET set to any value you'd like
 
-### `npm run eject`
+```
+SERVER_SECRET = 123456
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+First off make sure you have a local version of MongoDB running on your machine. This project will make a local database for you called `appDB`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+mongod
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Start by installing front and backend dependencies. While in the root directory, run the following command:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm install
+```
 
-## Learn More
+After all installations complete, run the following command in your terminal:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-### Code Splitting
+## Deployment (Heroku)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Create a Git Repo
 
-### Analyzing the Bundle Size
+Once you're ready to deploy, start by making sure your project is a git repository. If so, proceed to the next section, otherwise run the following commands in your terminal:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+git init
+git add .
+git commit -m "Initial commit"
+```
 
-### Making a Progressive Web App
+### Deploying
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+1. Go onto your heroku account and link your repository through the UI
+2. Go to resources and find mLab as a Add-on
+3. Provision a Mongo Database
+4. Go back and click "Deploy"
 
-### Advanced Configuration
+## Tests/Linting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Run `npm run lint` from the project root to run eslint checks on the backend
+and front end code. Run `npm run lint` from the `client` directory to lint the
+client only.
 
-### Deployment
+The root and client have convenience scripts define to easily apply auto-fixes
+with eslint. Run `npm run lint:fix` from the root and `client` to apply fixes
+for the entire project or client only respectively.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Travis CI
 
-### `npm run build` fails to minify
+A basic configuration for Travis CI is included. Configure the GitHub repo to
+run checks before merging to enforce linting checks and tests.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**IMPORTANT!** Add the mongodb service to `.travis.yml` if tests using MongoDB
+are included in the project. Likewise, if another database is used to replace
+MongoDB, then `.travis.yml` will need to be updated accordingly. Please refer
+to the [Travis CI Documentation](https://docs.travis-ci.com/) for more
+information.
