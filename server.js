@@ -27,7 +27,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(authRouter, usersRouter, resultsRouter, errorMiddleware);
+app.use(authRouter, usersRouter,resultsRouter, errorMiddleware);
+
 
 // Send all other requests to react app
 app.get("*", (req, res) => {
