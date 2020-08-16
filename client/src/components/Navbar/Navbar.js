@@ -12,7 +12,7 @@ function Navbar() {
   if (isLoggedIn) {
     links.push(
       <NavLink key="profile" className="nav-item" to="/profile">
-        Profile
+        New Quiz
       </NavLink>
     );
     links.push(
@@ -38,7 +38,7 @@ function Navbar() {
 function BrandLink(props) {
   return (
     <NavLink className="nav-item brand" exact {...props}>
-      React JWT
+      GeoQuiz
     </NavLink>
   );
 }
