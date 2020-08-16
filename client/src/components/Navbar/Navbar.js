@@ -32,13 +32,13 @@ function Navbar() {
       </NavLink>
     );
   }
-  return <nav className="Navbar">{links}</nav>;
+  return <nav className="Navbar mb-5">{links}</nav>;
 }
 
 function BrandLink(props) {
   return (
-    <NavLink className="nav-item brand" exact {...props}>
-      GeoQuiz
+    <NavLink className="nav-item brand" exact {...props} to= "/about">
+      About GeoQuiz
     </NavLink>
   );
 }
