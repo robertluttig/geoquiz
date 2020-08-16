@@ -32,13 +32,18 @@ function Quiz() {
             return item.answer = "";
           });
           setQuestionState({
-            ...questionState, questions: res.data.questions, timeLimit: res.data.timeLimit, title: res.data.title
+            ...questionState, questions: res.data.questions, title: res.data.title
           });
         })
       }, []);
 
 
-
+      const { id } = useParams();
+      // get quiz by ID
+      const getQuiz = async () => {
+        const quiz = await API.getQuizById(id);
+        return quiz;
+      }
 
 
 }
