@@ -8,7 +8,7 @@ const ResultSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  results: {}
+  results: []
 });
 
 const Result = mongoose.model("Result", ResultSchema);
