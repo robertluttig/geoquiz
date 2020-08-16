@@ -11,7 +11,7 @@ function Navbar() {
 
   if (isLoggedIn) {
     links.push(
-      <NavLink key="profile" className="nav-item" to="/profile">
+      <NavLink key="profile" className="nav-item" to="/quiz">
         New Quiz
       </NavLink>
     );
