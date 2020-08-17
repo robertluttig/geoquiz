@@ -1,12 +1,14 @@
 .LoginForm {
   display: flex;
   flex-direction: column;
+  
+  
 }
 
 .LoginForm input {
   border: none;
-  background-color: #e6f9ff;
-  border-bottom: 1px solid #33ccff;
+  background-color: rgb(230, 230, 73);
+  border-bottom: 1px solid #4de061;
   margin-bottom: 1.25rem;
   padding: 0.75rem 0.5rem;
   font-size: 1rem;
@@ -15,7 +17,8 @@
 .LoginForm ::placeholder,
 .LoginForm ::-webkit-input-placeholder {
   opacity: 0.5;
-}
+  
+} */
 
 .LoginForm label {
   margin-bottom: 0.5rem;

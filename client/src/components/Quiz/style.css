@@ -22,6 +22,8 @@
   
 }
 
+
+
 .title-container {
   background-image: url("../Navbar/earth_icon.png");
   background-size: 85px 71px ;
@@ -46,10 +48,6 @@
 	color: white;
 }
 
-/* .map-container {
-  
-   
-  } */
 
 .click-container {
   background-color: plum;
