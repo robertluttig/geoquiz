@@ -22,7 +22,7 @@ router.get("/api/results/:userid", isAuthenticated, (req, res) => {
 
 
 
-router.post("/api/result", (req, res) => {
+router.post("/api/result", isAuthenticated,(req, res) => {
   db.Result.findOne({ user: req.body.user })
     .then(async (data) => {
       if (data) {
