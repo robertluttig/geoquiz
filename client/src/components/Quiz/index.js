@@ -56,8 +56,8 @@ function Quiz() {
 	// if (page === "quiz") {
 	return (
 		<div className="container">
-			<div className="row text-center title-container p-3">
-				<div className="col-sm">
+			<div className="row text-center  mr-3">
+				<div className="col-sm-12 title-container p-3">
 					<h2>
 						{/* {questionState.title}  */}
 						(Name-of-Country) Quiz
@@ -65,13 +65,13 @@ function Quiz() {
 				</div>
 			</div>
 			<div className="row quiz-form-container pt-5">
-				<div className="col-sm">
+				<div className="col-sm-4">
 					<span className="question-container">Where is Peru?</span>
 				</div>
-				<div className="col-sm map-container">
+				<div className="col-sm-4 map-container">
 					<img src={mapImage} alt="Map" height="400" width="250" />
 				</div>
-				<div className="col-sm">
+				<div className="col-sm-4">
           Click your Answer on the Map
 					<div className="row click-container mb-5">
 						<div id="arrowAnim">
