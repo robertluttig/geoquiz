@@ -5,10 +5,13 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
-import Profile from "./pages/Profile";
+import Quiz from "./components/Quiz/index";
 import Signup from "./pages/Signup";
+import About from "./pages/About/About";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 
 function App() {
   return (
@@ -26,10 +29,14 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <ProtectedRoute exact path="/profile">
-              <Profile />
+            <Route exact path="/about">
+              <About />
+            </Route>
+            <ProtectedRoute exact path="/quiz">
+              <Quiz />
             </ProtectedRoute>
           </Switch>
+          <Footer />
         </div>
       </Router>
     </AuthProvider>

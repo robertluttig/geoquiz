@@ -22,7 +22,6 @@ import Col from 'react-bootstrap/Col'
 
 function Signup() {
   const [formState, setFormState] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -37,7 +36,8 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    API.signUpUser(formState.username, formState.email, formState.password)
+    alert("it clicked")
+    API.signUpUser(formState.email, formState.password)
       .then((res) => {
         // once the user has signed up
         // send them to the login page
@@ -60,7 +60,7 @@ function Signup() {
         <Row className="justify-content-md-center">
           <Col md="auto" className="createAccount">
             <h1><Badge variant="warning">Create Your Account </Badge></h1>
-            <Form onSubmit={handleFormSubmit}>
+            <Form>
               <InputGroup
                 id="email"
                 labelText="Email"
@@ -77,12 +77,12 @@ function Signup() {
                 type="password"
                 onChange={handleChange}
               />
-              <Button variant="success" size="lg" block>Submit</Button>
+              <Button onClick={handleFormSubmit} variant="success" size="lg" block>Submit</Button>
             </Form>
           </Col>
           <Col md="auto">
             <h1><Badge variant="warning">Already a Geoquizer? </Badge></h1>
-            <Button variant="success" size="lg" block to="/login">Log In Here</Button>
+            <Button variant="success" size="lg" block href="/login" >Log In Here</Button>
           </Col>
         </Row>
       </Container>

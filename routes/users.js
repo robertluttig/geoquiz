@@ -17,4 +17,4 @@ router.get("/api/user/:id", isAuthenticated, (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
-module.exports = router;
+module.exports = router; 
