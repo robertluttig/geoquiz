@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Quiz from "./components/Quiz/index";
 import Signup from "./pages/Signup";
+import About from "./pages/About/About";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/about">
+              <About />
             </Route>
             <ProtectedRoute exact path="/quiz">
               <Quiz />
