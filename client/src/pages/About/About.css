@@ -1,0 +1,9 @@
+.heading {
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.card-title, .card-subtitle, .repo {
+  text-align: center;
+}
