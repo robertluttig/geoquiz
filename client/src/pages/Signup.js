@@ -3,18 +3,25 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
+import "./Signup.css";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Badge from 'react-bootstrap/Badge';
+import Container from "../components/Container";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 
-const signupStyles = {
-  maxWidth: "20rem",
-  margin: "0 auto",
-  display: "flex",
-  justifyContent: "center",
-  flexDirection: "column",
-};
+// const signupStyles = {
+//   maxWidth: "20rem",
+//   margin: "0 auto",
+//   display: "flex",
+//   justifyContent: "center",
+//   flexDirection: "column",
+
+// };
 
 function Signup() {
   const [formState, setFormState] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -29,7 +36,8 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    API.signUpUser(formState.username, formState.email, formState.password)
+    alert("it clicked")
+    API.signUpUser(formState.email, formState.password)
       .then((res) => {
         // once the user has signed up
         // send them to the login page
@@ -47,44 +55,37 @@ function Signup() {
   };
 
   return (
-    <div style={signupStyles} className="Signup">
-      <h1>Signup</h1>
-      <Form onSubmit={handleFormSubmit}>
-        <InputGroup
-          id="username"
-          labelText="Username"
-          placeholder="WinterIsComing"
-          name="username"
-          type="text"
-          onChange={handleChange}
-        />
-        <InputGroup
-          id="email"
-          labelText="Email"
-          placeholder="jon.snow@email.com"
-          name="email"
-          type="email"
-          onChange={handleChange}
-        />
-        <InputGroup
-          id="pwd"
-          labelText="Password"
-          placeholder="p@ssw0Rd!"
-          name="password"
-          type="password"
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </Form>
-      <Link
-        style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-        }}
-        to="/login"
-      >
-        Go to Login
-      </Link>
+    <div className="page">
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col md="auto" className="createAccount">
+            <h1><Badge variant="warning">Create Your Account </Badge></h1>
+            <Form>
+              <InputGroup
+                id="email"
+                labelText="Email"
+                placeholder="jon.snow@email.com"
+                name="email"
+                type="email"
+                onChange={handleChange}
+              />
+              <InputGroup
+                id="pwd"
+                labelText="Password"
+                placeholder="p@ssw0Rd!"
+                name="password"
+                type="password"
+                onChange={handleChange}
+              />
+              <Button onClick={handleFormSubmit} variant="success" size="lg" block>Submit</Button>
+            </Form>
+          </Col>
+          <Col md="auto">
+            <h1><Badge variant="warning">Already a Geoquizer? </Badge></h1>
+            <Button variant="success" size="lg" block href="/login" >Log In Here</Button>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
