@@ -17,7 +17,13 @@
   
   .question-container {
     padding: 20px;
-    border: 1px solid #c0c0c0;
+    border-color: #c0c0c0;
+    border-width: 5px;
+    border-style: ridge;  
+    background-color: rgb(6, 163, 184);
+    font-size: 18px;
+    color: white;
+
   }
   
   .num-box {
@@ -30,10 +36,7 @@
   .total-num {
     color: #7c7c7c;
   }
-  
-  .question-text {
-    font-size: 18px;
-  }
+
   
   .answer-choice {
     border: 1px solid #c0c0c0;
@@ -63,28 +66,8 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
-  .my-card {
-    margin: 0 auto;
-    background-color: #2A352E;
-    max-width: 300px;
-  }
-  
-  .my-card span {
-    color: #7c7c7c;
-  }
-  
-  .score {
-    font-weight: 600;
-    font-size: 42px;
-    text-align: center;
-    color: #7CEDAB !important;
-  }
-  
-  .my-feedback {
-    max-width: 600px;
-  }
-  
+
+
   
   
   /* Medium devices (landscape tablets, 768px and below) */

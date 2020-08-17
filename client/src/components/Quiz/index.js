@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./style.css";
 import API from "../../utils/API";
+import mapImage from "./temp-map.jpg";
 
 function Quiz() {
 	const [questionState, setQuestionState] = useState({
@@ -63,7 +64,21 @@ function Quiz() {
           </div>
 			</div>
 			<div className="row">
-				<div className="col-sm">Hellow Row2</div>
+				<div className="col-sm">
+          <span className= "question-container">Where is Peru?</span>
+          </div>
+        <div className="col-sm">
+          This will display the map <br />
+    <img src= {mapImage} alt= "Map" height= "400" width = "250" />
+          </div>
+        <div className="col-sm">
+        <div className="row">
+          Hellow Row2 col3, row 1
+          </div>
+        <div className="row">
+          Hellow Row2 col2, row 2
+          </div>
+        </div>
 			</div>
 		</div>
 	);
