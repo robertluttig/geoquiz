@@ -64,7 +64,7 @@ function Quiz() {
 					</h2>
 				</div>
 			</div>
-			<div className="row quiz-form-container">
+			<div className="row quiz-form-container pt-5">
 				<div className="col-sm">
 					<span className="question-container">Where is Peru?</span>
 				</div>

@@ -3,19 +3,33 @@
 * {
 	padding: 0;
 	margin: 0;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  color: black
+}
+
+.h2 {
+  color: black;
 }
 
 .quiz-form-container {
 	padding-bottom: 100px;
 	padding: 20px;
 	width: 100%;
-	background-color: #deec1ed7;
+  background-color: #ecbc1eb2;
+  border-color: black;
+  border-style: groove;
+  border-width: 4px;
+  
 }
 
 .title-container {
   background-image: url("../Navbar/earth_icon.png");
   background-size: 85px 71px ;
+  border-color: black;
+  border-style: groove;
+  border-width: 4px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .time-limit span {
@@ -38,7 +52,8 @@
   } */
 
 .click-container {
-	background-color: rgb(6, 163, 184);
+  background-color: plum;
+ 
 }
 
 h3 {
