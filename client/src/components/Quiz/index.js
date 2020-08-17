@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./style.css";
-import API from '../../utils/API';
-
+import API from "../../utils/API";
 
 function Quiz() {
 	const [questionState, setQuestionState] = useState({
@@ -45,26 +44,31 @@ function Quiz() {
 	const getQuiz = async () => {
 		const quiz = await API.getQuizById(id);
 		return quiz;
-  };
-  
-  // const preventFormSubmit = (event) => {
-  //   event.preventDefault();
-  // }
+	};
 
-// const myRender = (page) => {
-// if (page === "quiz") {
+	// const preventFormSubmit = (event) => {
+	//   event.preventDefault();
+	// }
+
+	// const myRender = (page) => {
+	// if (page === "quiz") {
 	return (
 		<div className="quiz-form-container container">
-			<form onSubmit={(event) => (event) => { event.preventDefault()}}>
-				<div className="uk-flex uk-flex-between uk-flex-middle">
-					{/* <h3 className="question-title">{questionState.title}</h3> */}
-          Hello Quiz
-				</div>
-			</form>
+			<div className="row text-center">
+				<div className="col-sm">
+  <h2> 
+    {/* {questionState.title}  */}
+   (Name-of-Country) Quiz
+    </h2>
+          </div>
+			</div>
+			<div className="row">
+				<div className="col-sm">Hellow Row2</div>
+			</div>
 		</div>
 	);
-// }
-// }
- }
+	// }
+	// }
+}
 
 export default Quiz;
