@@ -1,78 +1,84 @@
+/** @format */
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .quiz-form-container {
-    padding-bottom: 100px;
-    padding: 20px;
-    width: 100%;
-    background-color: #deec1ed7 ;
-  }
-  
-  .time-limit span {
-    margin-left: 10px;
-  }
-  
-  .question-container {
-    padding: 20px;
-    border-color: #c0c0c0;
-    border-width: 5px;
-    border-style: ridge;  
-    background-color: rgb(6, 163, 184);
-    font-size: 18px;
-    color: white;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
-  }
-  
-  .num-box {
-    border: 1px solid #c0c0c0;
-    width: 60px;
-    height: 60px;
-    margin-right: 20px;
-  }
-  
-  .total-num {
-    color: #7c7c7c;
-  }
+.quiz-form-container {
+	padding-bottom: 100px;
+	padding: 20px;
+	width: 100%;
+	background-color: #deec1ed7;
+}
 
+.title-container {
+  background-image: url("../Navbar/earth_icon.png");
+  background-size: 85px 71px ;
+}
+
+.time-limit span {
+	margin-left: 10px;
+}
+
+.question-container {
+	padding: 20px;
+	border-color: #c0c0c0;
+	border-width: 5px;
+	border-style: ridge;
+	background-color: rgb(6, 163, 184);
+	font-size: 18px;
+	color: white;
+}
+
+/* .map-container {
   
-  .answer-choice {
-    border: 1px solid #c0c0c0;
-    padding: 10px;
-    cursor: pointer;
-    width: 49%;
-  }
-  
-  .answer-choice label {
-    cursor: pointer;
-  }
-  
-  .answer-choice:hover {
-    background-color: rgb(201, 245, 220);
-  }
-  
-  .full-screen {
-    width: 100%;
-    padding: 20px 20px 60px 20px;
-    text-align: center;
-    min-height: calc(100vh - 250px);
-  }
-  
-  .quiz-image {
-    max-width: 100%;
-    max-height: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+   
+  } */
+
+.click-container {
+	background-color: rgb(6, 163, 184);
+}
+
+h3 {
+  color: white;
+}
 
 
-  
-  
-  /* Medium devices (landscape tablets, 768px and below) */
-  @media only screen and (max-width: 768px) {
-    .answer-choice {
-      width: 100%;
-    }
-  }
+
+.answer-choice {
+	border: 1px solid #c0c0c0;
+	padding: 10px;
+	cursor: pointer;
+	width: 49%;
+}
+
+.answer-choice label {
+	cursor: pointer;
+}
+
+.answer-choice:hover {
+	background-color: rgb(201, 245, 220);
+}
+
+.full-screen {
+	width: 100%;
+	padding: 20px 20px 60px 20px;
+	text-align: center;
+	min-height: calc(100vh - 250px);
+}
+
+.quiz-image {
+	max-width: 100%;
+	max-height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Medium devices (landscape tablets, 768px and below) */
+@media only screen and (max-width: 768px) {
+	.answer-choice {
+		width: 100%;
+	}
+}
