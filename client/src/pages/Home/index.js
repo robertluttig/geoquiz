@@ -35,14 +35,13 @@ function Home() {
     });
   }, [user]);
 
-  function generateList(result) {
+  function generateList(continent) {
     let data = "NO RESULTS TO DISPLAY";
-    if (result !== "undefined") {
-      continentArr.map((continent) => {
+    if (results.length !==0 && results.length !== "undefined") {
+      results.map((result) => {
         if (result[continent]) {
           data = continent + " " + result[continent];
-        }
-        if (result[continent] === "undefined") {
+        }else {
           data = continent;
         }
       });
@@ -61,10 +60,10 @@ function Home() {
             <Card>
               <ListGroup variant="flush">
                 {results.length
-                  ? results.map((result) => {
+                  ? continentArr.map((continent) => {
                       return (
                         <ListGroup.Item variant="success">
-                          {generateList(result)}
+                          {generateList(continent)}
                         </ListGroup.Item>
                       );
                     })
