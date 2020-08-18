@@ -8,10 +8,10 @@ import Login from "./pages/Login";
 import Quiz from "./components/Quiz/index";
 import Signup from "./pages/Signup";
 import About from "./pages/About/About";
+import Results from "./pages/Results/Results";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
 
 function App() {
   return (
@@ -34,6 +34,9 @@ function App() {
             </Route>
             <ProtectedRoute exact path="/quiz">
               <Quiz />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/results">
+              <Results />
             </ProtectedRoute>
           </Switch>
           <Footer />
