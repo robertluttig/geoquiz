@@ -27,7 +27,10 @@ function Home() {
   }, [user]);
 
   return (
-    <Container className="Home">
+    <div className="Home">
+
+  
+    <Container >
       <Row>
         <Col>
           <img
@@ -44,9 +47,9 @@ function Home() {
         <Col>
           <Card >
             <ListGroup variant="flush">
-              <ListGroup.Item variant="secondary">Cras justo odio</ListGroup.Item>
-              <ListGroup.Item variant="secondary">Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item variant="secondary">Vestibulum at eros</ListGroup.Item>
+              <ListGroup.Item variant="success">Cras justo odio</ListGroup.Item>
+              <ListGroup.Item variant="success">Dapibus ac facilisis in</ListGroup.Item>
+              <ListGroup.Item variant="success">Vestibulum at eros</ListGroup.Item>
             </ListGroup>
           </Card>
         </Col>
@@ -60,6 +63,7 @@ function Home() {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 }
 
