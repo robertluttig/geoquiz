@@ -20,7 +20,7 @@ function App() {
         <div>
           <Navbar />
           <Switch>
-            <ProtectedRoute exact path="/">
+            <ProtectedRoute exact path={["/","/profile"]}>
               <Home />
             </ProtectedRoute>
             <Route exact path="/login">

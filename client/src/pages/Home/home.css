@@ -1,10 +1,15 @@
 .Home {
   text-align: center;
-}
 
+}
+.bg {
+  background-image: url(https://media.giphy.com/media/bXhiABcqQGT3W/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 .Home-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+ 
+  height: 210px;
 }
 
 .Home-header {
@@ -15,6 +20,10 @@
 
 .Home-intro {
   font-size: large;
+}
+
+.No-Results{
+color:black;
 }
 
 @keyframes App-logo-spin {
