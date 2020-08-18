@@ -41,7 +41,8 @@ function Home() {
       continentArr.map((continent) => {
         if (result[continent]) {
           data = continent + " " + result[continent];
-        } else if (result[continent] === "undefined") {
+        }
+        if (result[continent] === "undefined") {
           data = continent;
         }
       });
@@ -59,13 +60,19 @@ function Home() {
           <Col>
             <Card>
               <ListGroup variant="flush">
-                {results.map((result) => {
-                  return (
-                    <ListGroup.Item variant="success">
-                      {generateList(result)}
-                    </ListGroup.Item>
-                  );
-                })}
+                {results.length
+                  ? results.map((result) => {
+                      return (
+                        <ListGroup.Item variant="success">
+                          {generateList(result)}
+                        </ListGroup.Item>
+                      );
+                    })
+                  : continentArr.map((continent) => {
+                     return (<ListGroup.Item variant="success">
+                        {continent}
+                      </ListGroup.Item>)
+                    })}
               </ListGroup>
             </Card>
           </Col>
