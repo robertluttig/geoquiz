@@ -8,6 +8,7 @@ import API from "../../utils/API";
 import mapImage from "./temp-map.jpg";
 
 function Quiz() {
+	const continent =  useParams().continent;
 	const [questionState, setQuestionState] = useState({
 		started: false,
 		questions: [

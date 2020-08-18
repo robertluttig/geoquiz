@@ -61,8 +61,9 @@ function Home() {
               <ListGroup variant="flush">
                 {results.length
                   ? continentArr.map((continent) => {
+                    let queryString = "/quiz/" + continent;
                       return (
-                        <Button variant="success" key={continent} href="/quiz">
+                        <Button variant="success" key={continent} href={queryString}>
                           <ListGroup.Item variant="success">
                           {generateList(continent)}
                         </ListGroup.Item>
