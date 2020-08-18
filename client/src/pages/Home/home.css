@@ -1,6 +1,8 @@
 .Home {
   text-align: center;
-  background-color: rgb(230, 230, 73);
+  background-image: url(https://media.giphy.com/media/mf8UbIDew7e8g/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .Home-logo {
@@ -16,6 +18,10 @@
 
 .Home-intro {
   font-size: large;
+}
+
+.No-Results{
+color:black;
 }
 
 @keyframes App-logo-spin {
