@@ -62,13 +62,16 @@ function Home() {
                 {results.length
                   ? continentArr.map((continent) => {
                       return (
-                        <ListGroup.Item variant="success">
+                        <Button variant="success" key={continent} href="/quiz">
+                          <ListGroup.Item variant="success">
                           {generateList(continent)}
                         </ListGroup.Item>
+                        </Button>
+                        
                       );
                     })
                   : continentArr.map((continent) => {
-                     return (<ListGroup.Item variant="success">
+                     return (<ListGroup.Item key={continent} variant="success">
                         {continent}
                       </ListGroup.Item>)
                     })}
