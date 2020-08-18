@@ -82,7 +82,6 @@ function Home() {
         </Row>
         <Row className="pt-5">
           <Col>
-            <Button href="/quiz">Take A Quiz</Button>
             <Button style={{ marginLeft: "1em" }} onClick={() => logout()}>
               Logout
             </Button>
