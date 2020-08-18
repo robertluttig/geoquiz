@@ -9,16 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from 'react-bootstrap/Badge';
 import Container from "../components/Container";
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
-// const signupStyles = {
-//   maxWidth: "20rem",
-//   margin: "0 auto",
-//   display: "flex",
-//   justifyContent: "center",
-//   flexDirection: "column",
-
-// };
 
 function Signup() {
   const [formState, setFormState] = useState({
@@ -36,7 +29,6 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    alert("it clicked")
     API.signUpUser(formState.email, formState.password)
       .then((res) => {
         // once the user has signed up
@@ -59,6 +51,7 @@ function Signup() {
       <Container>
         <Row className="justify-content-md-center">
           <Col md="auto" className="createAccount">
+            <Card className="card" border="dark">
             <h1><Badge variant="warning">Create Your Account </Badge></h1>
             <Form>
               <InputGroup
@@ -79,10 +72,13 @@ function Signup() {
               />
               <Button onClick={handleFormSubmit} variant="success" size="lg" block>Submit</Button>
             </Form>
+            </Card>
           </Col>
           <Col md="auto">
+          <Card className="card" border="dark">
             <h1><Badge variant="warning">Already a Geoquizer? </Badge></h1>
             <Button variant="success" size="lg" block href="/login" >Log In Here</Button>
+            </Card>
           </Col>
         </Row>
       </Container>
