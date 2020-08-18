@@ -1,10 +1,12 @@
 .Home {
   text-align: center;
-  background-image: url(https://media.giphy.com/media/mf8UbIDew7e8g/giphy.gif);
+
+}
+.bg {
+  background-image: url(https://media.giphy.com/media/bXhiABcqQGT3W/giphy.gif);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-
 .Home-logo {
  
   height: 210px;

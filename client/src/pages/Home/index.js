@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import "./home.css";
 import { useAuth } from "../../utils/auth";
@@ -13,7 +12,17 @@ import ListGroup from "react-bootstrap/ListGroup";
 function Home() {
   const { user, logout } = useAuth();
   const [email, setEmail] = useState("");
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState([]);
+
+  const continentArr = [
+    "Asia",
+    "Africa",
+    "Europe",
+    "North America",
+    "South America",
+    "Australia",
+    "Antarctica",
+  ];
   //const history = useHistory();
 
   //const goToEditProfile = () => history.push("/profile");
@@ -26,43 +35,50 @@ function Home() {
     });
   }, [user]);
 
+  function generateList(result) {
+    let data = "NO RESULTS TO DISPLAY";
+    if (result !== "undefined") {
+      continentArr.map((continent) => {
+        if (result[continent]) {
+          data = continent + " " + result[continent];
+        } else if (result[continent] === "undefined") {
+          data = continent;
+        }
+      });
+    }
+    return data;
+  }
+
   return (
-    <div className="Home">
-
-  
-    <Container >
-      <Row>
-        <Col>
-          <img
-            src="https://media.giphy.com/media/mf8UbIDew7e8g/giphy.gif"
-            className="Home-logo"
-          ></img>
-        </Col>
-      </Row>
-
-      <Row className="Home-header">
-        <h2>Welcome {user.email}</h2>
-      </Row>
-      <Row className="Home-intro">
-        <Col>
-          <Card >
-            <ListGroup variant="flush">
-              <ListGroup.Item variant="success">Cras justo odio</ListGroup.Item>
-              <ListGroup.Item variant="success">Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item variant="success">Vestibulum at eros</ListGroup.Item>
-            </ListGroup>
-          </Card>
-        </Col>
-      </Row>
-      <Row className="pt-5">
-        <Col>
-          <Button href="/quiz">Take A Quiz</Button>
-          <Button style={{ marginLeft: "1em" }} onClick={() => logout()}>
-            Logout
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+    <div className="bg">
+      <Container className="Home">
+        <Row>
+          <h2 className="Home-header">Welcome {user.email}</h2>
+        </Row>
+        <Row className="Home-intro">
+          <Col>
+            <Card>
+              <ListGroup variant="flush">
+                {results.map((result) => {
+                  return (
+                    <ListGroup.Item variant="success">
+                      {generateList(result)}
+                    </ListGroup.Item>
+                  );
+                })}
+              </ListGroup>
+            </Card>
+          </Col>
+        </Row>
+        <Row className="pt-5">
+          <Col>
+            <Button href="/quiz">Take A Quiz</Button>
+            <Button style={{ marginLeft: "1em" }} onClick={() => logout()}>
+              Logout
+            </Button>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
