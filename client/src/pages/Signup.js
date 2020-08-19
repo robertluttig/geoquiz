@@ -49,10 +49,10 @@ function Signup() {
 
 	return (
 	
-			<div className="container">
+			<div className="container p-3 mt-4">
 				<div className="row">
 					<div className="createAccount col-sm">
-						<Card className="card" border="dark">
+						<Card className="card p-3 text-center" border="dark">
 							<h1>
 								<Badge variant="warning">Create Your Account </Badge>
 							</h1>
@@ -84,7 +84,7 @@ function Signup() {
 						</Card>
 					</div>
 					<div className="col-sm">
-						<Card className="card" border="dark">
+						<Card className="card p-3 text-center" border="dark">
 							<h1>
 								<Badge variant="warning">Already a Geoquizer? </Badge>
 							</h1>
