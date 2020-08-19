@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Footer() {
     return (
-        <footer className= "footer d-block">
+        <footer className= "footer pt-2 d-block">
             <div className="uk-flex uk-flex-column pl-5">
                 <div className="uk-margin uk-margin-top uk-text-small">
                     Developed by

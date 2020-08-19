@@ -32,7 +32,7 @@ function Navbar() {
       </NavLink>
     );
   }
-  return <nav className="Navbar mb-5">{links}</nav>;
+  return <nav className="Navbar">{links}</nav>;
 }
 
 function BrandLink(props) {
