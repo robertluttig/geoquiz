@@ -36,7 +36,7 @@ function Quiz() {
   }
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row text-center  mr-3">
         <div className="col-sm-12 title-container p-3">
           <h2 className="continent-heading">{continent}</h2>

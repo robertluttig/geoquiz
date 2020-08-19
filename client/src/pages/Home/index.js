@@ -37,11 +37,11 @@ function Home() {
 
   function generateList(continent) {
     let data = "NO RESULTS TO DISPLAY";
-    if (results.length !==0 && results.length !== "undefined") {
+    if (results.length !== 0 && results.length !== "undefined") {
       results.map((result) => {
         if (result[continent]) {
           data = continent + " " + result[continent];
-        }else {
+        } else {
           data = continent;
         }
       });
@@ -61,20 +61,32 @@ function Home() {
               <ListGroup variant="flush">
                 {results.length
                   ? continentArr.map((continent) => {
-                    let queryString = "/quiz/" + continent;
+                      let queryString = "/quiz/" + continent;
                       return (
-                        <Button variant="success" key={continent} href={queryString}>
+                        <Button
+                          variant="success"
+                          key={continent}
+                          href={queryString}
+                        >
                           <ListGroup.Item variant="success">
-                          {generateList(continent)}
-                        </ListGroup.Item>
+                            {generateList(continent)}
+                          </ListGroup.Item>
                         </Button>
-                        
                       );
                     })
                   : continentArr.map((continent) => {
-                     return (<ListGroup.Item key={continent} variant="success">
-                        {continent}
-                      </ListGroup.Item>)
+                    let queryString = "/quiz/" + continent;
+                      return (
+                        <Button
+                          variant="success"
+                          key={continent}
+                          href={queryString}
+                        >
+                          <ListGroup.Item key={continent} variant="success">
+                            {continent}
+                          </ListGroup.Item>
+                        </Button>
+                      );
                     })}
               </ListGroup>
             </Card>
