@@ -25,7 +25,7 @@
 
 
 .title-container {
-  background-image: url("../Navbar/earth_icon.png");
+  background-color: cadetblue;
   background-size: 85px 71px ;
   border-color: black;
   border-style: groove;
@@ -46,6 +46,9 @@
 	background-color: rgb(6, 163, 184);
 	font-size: 18px;
 	color: white;
+	display: flex;
+	width:200px;
+    word-wrap: break-word;
 }
 
 
