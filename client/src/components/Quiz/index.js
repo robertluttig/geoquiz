@@ -40,13 +40,13 @@ function Quiz() {
   
 
   return (
-    <div className="container mt-5">
-      <div className="row text-center  mr-3">
-        <div className="col-sm-12 title-container p-3">
+    <div className="container mt-5 p-4">
+      <div className="row text-center">
+        <div className="col-sm-12 title-container p-2">
           <h2 className="continent-heading">{continent}</h2>
         </div>
       </div>
-      <div className="row quiz-form-container pt-5">
+      <div className="row pt-5">
         <div className="col-sm-4">
           <p className="question-container">Where is {country}</p>
         </div>
