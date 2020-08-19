@@ -20,7 +20,7 @@ function Home() {
     "Europe",
     "North America",
     "South America",
-    "Australia",
+    "Oceania",
     "Antarctica",
   ];
   //const history = useHistory();
