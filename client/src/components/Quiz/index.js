@@ -9,6 +9,9 @@ import mapImage from "./temp-map.jpg";
 
 function Quiz() {
   const continent = useParams().continent;
+  let countryArr = [];
+ // let randomCountry = "";
+  const [country, setCountry] = useState("")
   const [questionState, setQuestionState] = useState({
     started: false,
     questions: [
@@ -45,8 +48,13 @@ function Quiz() {
   useEffect(() => {
 	  API.getCountryByContinent(continent)
 	  .then((res) => {
-		console.log(res.data) // Country Array from response
+		countryArr = res.data;// Country Array from response
+	//	console.log(res.data) 
+	//retrieving radom country from the array to ask the user.
+	setCountry(countryArr[Math.floor(Math.random() * countryArr.length)]);
+	console.log(country)
 	});
+	
 	//TODO: Make call gto map api to retrieve the map for the given continent
   }, []);
 
@@ -69,13 +77,13 @@ function Quiz() {
         <div className="col-sm-12 title-container p-3">
           <h2>
             {/* {questionState.title}  */}
-            (Name-of-Country) Quiz
+            {continent}
           </h2>
         </div>
       </div>
       <div className="row quiz-form-container pt-5">
         <div className="col-sm-4">
-          <span className="question-container">Where is Peru?</span>
+          <span className="question-container">Where is {country}</span>
         </div>
         <div className="col-sm-4 map-container">
           <img src={mapImage} alt="Map" height="400" width="250" />
