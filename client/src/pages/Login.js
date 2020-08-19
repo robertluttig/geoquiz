@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Card from 'react-bootstrap/Card';
+import './LoginForm.css';
 
 const loginStyle = {
   display: "flex",
@@ -39,11 +40,11 @@ function Login() {
   };
 
   return (
-    <div className="page">
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col md="auto" className="createAccount">
-            <Card className="card" border="dark">
+    
+    <div className="container p-3 mt-4">
+        <div className="row">
+          <div className="createAccount col-sm">
+            <Card className="card p-3 text-center" border="dark">
               <h1><Badge variant="warning">Login</Badge></h1>
               <Form>
                 <InputGroup
@@ -65,15 +66,17 @@ function Login() {
                 <Button variant="success" size="lg" block onClick={handleFormSubmit} type="submit">Submit</Button>
               </Form>
             </Card>
-          </Col>
-          <Col md="auto">
-            <Card className="card" border="dark">
+          </div>
+          <div className="col-sm">
+            <Card className="card p-3 text-center" border="dark">
+            <h1>
+								<Badge variant="warning">New to GeoQuiz? </Badge>
+							</h1>
               <Button variant="success" size="lg" block href="/signup" >Go to Signup</Button>
             </Card>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          </div>
+        </div>
+      </div>
   );
 }
 
