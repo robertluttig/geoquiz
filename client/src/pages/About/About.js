@@ -4,16 +4,17 @@ import "./About.css";
 function About() {
   return (
     <div>
+      <div className="container mt-3 mb-3">
       <h1 className="heading">What is GeoQuiz?</h1>
-
-      <div class="container">
+      </div>
+      <div class="container p-3">
         <div class="row">
           {/* Instruction Card */}
           <div class="col-sm">
             <div className="instructions">
-              <div className="card">
+              <div className="card p-3">
                 <div className="card-body">
-                  <h5 className="card-title">Quiz Instructions</h5>
+                  <h4 className="card-title">Quiz Instructions</h4>
                   <h6 class="card-subtitle mb-2 text-muted">
                     Welcome to GeoQuiz!
                   </h6>
@@ -26,11 +27,11 @@ function About() {
                     <li>
                       Once you have selected a continent, you will be shown an
                       image of the continent. You will then be given a country
-                      to identify by clicking on the map
+                      to identify by clicking on the map.
                     </li>
                     <li>
                       You will be asked to identify a total of five (5)
-                      countries for the continent you initially choose
+                      countries for the continent you initially choose.
                     </li>
                     <li>
                       Check out your score after finishing the quiz and make
@@ -45,9 +46,9 @@ function About() {
           {/* Link to Repo */}
           <div class="col-sm">
             <div className="repo">
-              <div className="card">
+              <div className="card p-3">
                 <div className="card-body">
-                  <h5 className="card-title">GitHub Repository</h5>
+                  <h4 className="card-title">GitHub Repository</h4>
                   <p className="card-text">
                     Take a look at our code on {""}
                     <a
