@@ -6,23 +6,15 @@ import "./style.css";
 import "./arrow.css";
 import API from "../../utils/API";
 import mapImage from "./temp-map.jpg";
+import Button from "react-bootstrap/Button";
 
 function Quiz() {
   const continent = useParams().continent;
   let countryArr = [];
- // let randomCountry = "";
-  const [country, setCountry] = useState("")
+  
   const [questionState, setQuestionState] = useState({
-    started: false,
-    questions: [
-      {
-        id: 1,
-        question: "",
-        imageUrl: "",
-        answer: 0,
-      },
-    ],
-    currentQuestion: 0,
+    country: "",
+    questionCount: 0,
   });
 
   // // state for controlling page being displayed
@@ -46,43 +38,35 @@ function Quiz() {
   }, []); */
 
   useEffect(() => {
-	  API.getCountryByContinent(continent)
-	  .then((res) => {
-		countryArr = res.data;// Country Array from response
-	//	console.log(res.data) 
-	//retrieving radom country from the array to ask the user.
-	setCountry(countryArr[Math.floor(Math.random() * countryArr.length)]);
-	console.log(country)
-	});
-	
-	//TODO: Make call gto map api to retrieve the map for the given continent
+    API.getCountryByContinent(continent).then((res) => {
+      countryArr = res.data; // Country Array from response
+      getRandomCountry();
+    });
+
+    //TODO: Make call gto map api to retrieve the map for the given continent
   }, []);
 
-  const { id } = useParams();
-  // // get quiz by ID
-  const getQuiz = async () => {
-    const quiz = await API.getQuizById(id);
-    return quiz;
-  };
+  //retrieving random country from the array to ask the user.
+  function getRandomCountry() {
+    setQuestionState({
+      country: countryArr[Math.floor(Math.random() * countryArr.length)],
+      questionCount: questionState.questionCount + 1,
+    });
+    console.log(questionState.questionCount);
+  }
 
-  // const preventFormSubmit = (event) => {
-  //   event.preventDefault();
-  // }
-
-  // const myRender = (page) => {
-  // if (page === "quiz") {
   return (
     <div className="container">
       <div className="row text-center  mr-3">
         <div className="col-sm-12 title-container p-3">
-          <h2 className="continent-heading">
-            {continent}
-          </h2>
+          <h2 className="continent-heading">{continent}</h2>
         </div>
       </div>
       <div className="row quiz-form-container pt-5">
         <div className="col-sm-4">
-          <span className="question-container">Where is {country}</span>
+          <span className="question-container">
+            Where is {questionState.country}
+          </span>
         </div>
         <div className="col-sm-4 map-container">
           <img src={mapImage} alt="Map" height="400" width="250" />
@@ -106,17 +90,28 @@ function Quiz() {
             </div>
           </div>
           <div className="row next-container m-5 p-5">
-            <button type="button" className="btn btn-danger btn-lg">
-              {" "}
-              <h3>Next Question</h3>
-            </button>
+            {questionState.questionCount <= 5 ? (
+              <Button
+                type="button"
+                className="btn btn-danger btn-lg"
+                onClick={getRandomCountry}
+              >
+                <h3>NEXT QUESTION</h3>
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                className="btn btn-danger btn-lg"
+                href="/results"
+              >
+                <h3>VIEW RESULTS</h3>
+              </Button>
+            )}
           </div>
         </div>
       </div>
     </div>
   );
-  // }
-  // }
 }
 
 export default Quiz;
