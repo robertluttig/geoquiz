@@ -28,18 +28,18 @@
 	border-color: black;
 	border-style: groove;
 	border-width: 4px;
+	padding: 6px;
   }
   
 
 
 .title-container {
   background-color: cadetblue;
-  background-size: 85px 71px ;
   border-color: black;
   border-style: groove;
   border-width: 4px;
-  margin-left: 0px;
-  margin-right: 0px;
+  position: relative;
+
 }
 
 .time-limit span {
@@ -61,7 +61,7 @@
 
 
 .click-container {
-  background-color: plum;
+  background-color: rgba(221, 160, 221, 0.39);
  
 }
 
