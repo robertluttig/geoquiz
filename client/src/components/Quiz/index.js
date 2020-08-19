@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "./style.css";
 import "./arrow.css";
@@ -10,49 +10,29 @@ import Button from "react-bootstrap/Button";
 
 function Quiz() {
   const continent = useParams().continent;
-  let countryArr = [];
-  
-  const [questionState, setQuestionState] = useState({
-    country: "",
-    questionCount: 0,
-  });
 
-  // // state for controlling page being displayed
-  // const [pageState, setPageState] = useState("quiz");
+  const [country, setCountry] = useState("");
+  const [questionCount, setQuestionCount] = useState(1);
 
-  // //state for the score
-  // const [scoreState, setScoreState] = useState();
-
-  // //load the quiz into state on page load
-  /* useEffect(() => {
-    getQuiz().then((res) => {
-      res.data.questions.map((item) => {
-        return (item.answer = "");
-      });
-      setQuestionState({
-        ...questionState,
-        questions: res.data.questions,
-        title: res.data.title,
-      });
-    });
-  }, []); */
-
+  const countryArr = useRef(null);
   useEffect(() => {
     API.getCountryByContinent(continent).then((res) => {
-      countryArr = res.data; // Country Array from response
+      countryArr.current = res.data; // Country Array from response
+
       getRandomCountry();
     });
 
     //TODO: Make call gto map api to retrieve the map for the given continent
   }, []);
 
-  //retrieving random country from the array to ask the user.
+  //Retrieving random country from the array to ask the user.
   function getRandomCountry() {
-    setQuestionState({
-      country: countryArr[Math.floor(Math.random() * countryArr.length)],
-      questionCount: questionState.questionCount + 1,
-    });
-    console.log(questionState.questionCount);
+    const randomCountry =
+      countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
+
+    setCountry(randomCountry);
+    setQuestionCount(questionCount + 1);
+    //TODO: Add functionality to check for correct answer and record the score
   }
 
   return (
@@ -64,9 +44,7 @@ function Quiz() {
       </div>
       <div className="row quiz-form-container pt-5">
         <div className="col-sm-4">
-          <span className="question-container">
-            Where is {questionState.country}
-          </span>
+          <span className="question-container">Where is {country}</span>
         </div>
         <div className="col-sm-4 map-container">
           <img src={mapImage} alt="Map" height="400" width="250" />
@@ -90,7 +68,7 @@ function Quiz() {
             </div>
           </div>
           <div className="row next-container m-5 p-5">
-            {questionState.questionCount <= 5 ? (
+            {questionCount <= 5 ? (
               <Button
                 type="button"
                 className="btn btn-danger btn-lg"
