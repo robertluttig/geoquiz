@@ -75,8 +75,7 @@ function Quiz() {
     <div className="container">
       <div className="row text-center  mr-3">
         <div className="col-sm-12 title-container p-3">
-          <h2>
-            {/* {questionState.title}  */}
+          <h2 className="continent-heading">
             {continent}
           </h2>
         </div>
