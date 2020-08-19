@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
 
-const countries = ["Chile", "Peru", "Brazil", "Colombia", "Venezuela"];
+const countries = ["Argentina", "Peru", "Brazil", "Colombia", "Venezuela"];
 
 function Results() {
   return (
