@@ -7,6 +7,7 @@ import "./arrow.css";
 import API from "../../utils/API";
 import mapImage from "./temp-map.jpg";
 import Button from "react-bootstrap/Button";
+import Map from "../Map";
 
 function Quiz() {
   const continent = useParams().continent;
@@ -47,7 +48,7 @@ function Quiz() {
           <p className="question-container">Where is {country}</p>
         </div>
         <div className="col-sm-4 map-container">
-          <img src={mapImage} alt="Map" height="400" width="250" />
+          <Map />
         </div>
         <div className="col-sm-4">
           Click your Answer on the Map
