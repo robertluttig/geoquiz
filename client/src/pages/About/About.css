@@ -9,3 +9,19 @@
 .repo {
   text-align: center;
 }
+
+.container {
+  background-color: #a9dd9a;
+  /* position:absolute; */
+  border-color: black;
+  border-style: groove;
+  border-width: 4px;
+}
+
+.card{
+  background-color:#e7a7bf
+}
+
+body {
+  background-color: #4ba0e9;
+}

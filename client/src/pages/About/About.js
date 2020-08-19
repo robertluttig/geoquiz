@@ -6,12 +6,12 @@ function About() {
     <div>
       <h1 className="heading">What is GeoQuiz?</h1>
 
-      <div class="container">
+      <div class="container p-3">
         <div class="row">
           {/* Instruction Card */}
           <div class="col-sm">
             <div className="instructions">
-              <div className="card">
+              <div className="card p-3">
                 <div className="card-body">
                   <h5 className="card-title">Quiz Instructions</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
@@ -45,7 +45,7 @@ function About() {
           {/* Link to Repo */}
           <div class="col-sm">
             <div className="repo">
-              <div className="card">
+              <div className="card p-3">
                 <div className="card-body">
                   <h5 className="card-title">GitHub Repository</h5>
                   <p className="card-text">
