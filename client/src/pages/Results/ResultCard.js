@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ResultsFacts from "./ResultsFacts";
 
 function ResultCard(props) {
@@ -9,7 +9,7 @@ function ResultCard(props) {
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">{props.country}</h5>
-          <span className="badge badge-pill badge-danger">Incorrect</span>
+          <span className="badge badge-pill badge-success">Correct</span>
           <ResultsFacts country={props.country}/>
         </div>
       </div>

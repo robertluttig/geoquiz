@@ -7,7 +7,7 @@ import "./arrow.css";
 import API from "../../utils/API";
 import mapImage from "./temp-map.jpg";
 import Button from "react-bootstrap/Button";
-import Map from "../Map";
+import Map from "./Map";
 
 function Quiz() {
   const continent = useParams().continent;
@@ -26,6 +26,8 @@ function Quiz() {
     //TODO: Make call gto map api to retrieve the map for the given continent
   }, []);
 
+
+
   //Retrieving random country from the array to ask the user.
   function getRandomCountry() {
     const randomCountry =
@@ -35,6 +37,7 @@ function Quiz() {
     setQuestionCount(questionCount + 1);
     //TODO: Add functionality to check for correct answer and record the score
   }
+  
 
   return (
     <div className="container mt-5">
@@ -48,7 +51,7 @@ function Quiz() {
           <p className="question-container">Where is {country}</p>
         </div>
         <div className="col-sm-4 map-container">
-          <Map />
+          <Map />    
         </div>
         <div className="col-sm-4">
           Click your Answer on the Map
@@ -78,14 +81,14 @@ function Quiz() {
                 <h3>NEXT QUESTION</h3>
               </Button>
             ) : (
-              <Button
-                type="button"
-                className="btn btn-danger btn-lg"
-                href="/results"
-              >
-                <h3>VIEW RESULTS</h3>
-              </Button>
-            )}
+                <Button
+                  type="button"
+                  className="btn btn-danger btn-lg"
+                  href="/results"
+                >
+                  <h3>VIEW RESULTS</h3>
+                </Button>
+              )}
           </div>
         </div>
       </div>
