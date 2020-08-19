@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import "./style.css";
 import "./arrow.css";
 import API from "../../utils/API";
-import mapImage from "./temp-map.jpg";
 import Button from "react-bootstrap/Button";
 import Map from "./Map";
 
@@ -50,10 +49,10 @@ function Quiz() {
         <div className="col-sm-4">
           <p className="question-container">Where is {country}</p>
         </div>
-        <div className="col-sm-4 map-container">
-          <Map />    
+        <div className="col-sm-6 map-container">
+          <Map continent={continent} />    
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-3">
           Click your Answer on the Map
           <div className="row click-container mb-5">
             <div id="arrowAnim">
@@ -71,7 +70,7 @@ function Quiz() {
               </div>
             </div>
           </div>
-          <div className="row next-container m-5 p-5">
+          <div className="row next-container m-4 p-5">
             {questionCount <= 5 ? (
               <Button
                 type="button"
@@ -92,7 +91,7 @@ function Quiz() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 }
 
