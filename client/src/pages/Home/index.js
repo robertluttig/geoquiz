@@ -61,14 +61,18 @@ function Home() {
               <ListGroup variant="flush">
                 {results.length
                   ? continentArr.map((continent) => {
+                    let queryString = "/quiz/" + continent;
                       return (
-                        <ListGroup.Item variant="success">
+                        <Button variant="success" key={continent} href={queryString}>
+                          <ListGroup.Item variant="success">
                           {generateList(continent)}
                         </ListGroup.Item>
+                        </Button>
+                        
                       );
                     })
                   : continentArr.map((continent) => {
-                     return (<ListGroup.Item variant="success">
+                     return (<ListGroup.Item key={continent} variant="success">
                         {continent}
                       </ListGroup.Item>)
                     })}
@@ -78,7 +82,6 @@ function Home() {
         </Row>
         <Row className="pt-5">
           <Col>
-            <Button href="/quiz">Take A Quiz</Button>
             <Button style={{ marginLeft: "1em" }} onClick={() => logout()}>
               Logout
             </Button>

@@ -32,7 +32,7 @@ function App() {
             <Route exact path="/about">
               <About />
             </Route>
-            <ProtectedRoute exact path="/quiz">
+            <ProtectedRoute exact path="/quiz/:continent">
               <Quiz />
             </ProtectedRoute>
             <ProtectedRoute exact path="/results">
