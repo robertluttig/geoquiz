@@ -36,7 +36,7 @@ function Quiz() {
   }
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row text-center  mr-3">
         <div className="col-sm-12 title-container p-3">
           <h2 className="continent-heading">{continent}</h2>
@@ -44,7 +44,7 @@ function Quiz() {
       </div>
       <div className="row quiz-form-container pt-5">
         <div className="col-sm-4">
-          <span className="question-container">Where is {country}</span>
+          <p className="question-container">Where is {country}</p>
         </div>
         <div className="col-sm-4 map-container">
           <img src={mapImage} alt="Map" height="400" width="250" />
