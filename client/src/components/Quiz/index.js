@@ -6,7 +6,7 @@ import "./style.css";
 import "./arrow.css";
 import API from "../../utils/API";
 import Button from "react-bootstrap/Button";
-import Map from "./Map";
+import Map from "../Map/Map";
 
 function Quiz() {
 	const continent = useParams().continent;
