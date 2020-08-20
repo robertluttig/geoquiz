@@ -29,13 +29,12 @@ export class MapContainer extends Component {
         );
     }
     render() {
-        
         return (
             <Map
                 google={this.props.google}
                 zoom={3}
                 style={mapStyles}
-                initialCenter={{
+                center={{
                     lat: this.state.latitude,
                     lng: this.state.longitude
                 }}
