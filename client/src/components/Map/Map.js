@@ -14,6 +14,10 @@ export class MapContainer extends Component {
         longitude: 0,
         latitude: 0
     }
+    markerState = {
+        longitude: 0,
+        latitude: 0
+    }
     componentDidMount() {
         Geocode.setApiKey(GOOGLE_MAP_API);
         Geocode.setLanguage("en");
@@ -28,7 +32,13 @@ export class MapContainer extends Component {
             }
         );
     }
-
+    displayMarker = (mapProps, map, clickEvent) =>  {
+        // console.log(event)
+        // console.log(event.LatLng())
+        // this.markerState.latitude = event.latLng.lat()
+        // this.markerState.longitude = event.latLng.lng()
+        console.log(clickEvent)
+    };
     render() {
         return (
             <Map
@@ -39,8 +49,9 @@ export class MapContainer extends Component {
                     lat: this.state.latitude,
                     lng: this.state.longitude
                 }}
+                onClick={this.displayMarker}
             >
-                <Marker position={{lat: this.state.latitude,lng: this.state.longitude}}/>
+                <Marker position={{ lat: this.markerState.latitude, lng: this.markerState.longitude }} />
             </Map>
         );
     }
