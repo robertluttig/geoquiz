@@ -49,15 +49,26 @@ function Quiz() {
 			<div className="row">
 				<p className="question-container">Where is {country}?</p>
 			</div>
-			<div className="row mb-5">
-				<div class="item">
-					<button>
-						Click Your Answer on the map
-						<i class="fa fa-long-arrow-right arrow1" aria-hidden="true"></i>
-					</button>
-				</div>
+			<div className="row mb-5 click-container">
+      Click your Answer on the Map
+          
+            <div id="arrowAnim">
+              <div className="arrowSliding">
+                <div className="arrow"></div>
+              </div>
+              <div className="arrowSliding delay1">
+                <div className="arrow"></div>
+              </div>
+              <div className="arrowSliding delay2">
+                <div className="arrow"></div>
+              </div>
+              <div className="arrowSliding delay3">
+                <div className="arrow"></div>
+              </div>
+            </div>
+
 			</div>
-			<div className="row next-container m-4 p-5">
+			<div className="row next-container m-4">
 				{questionCount <= 5 ? (
 					<Button
 						type="button"
@@ -75,7 +86,7 @@ function Quiz() {
 				)}
 			</div>
 		</div>
-		<div className="col-sm-6 map-container">
+		<div className="col-sm-6 map-container p-5">
 			<Map continent={continent} />
 		</div>
 	</div>

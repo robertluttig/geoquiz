@@ -55,19 +55,24 @@
 	color: white;
 	display: flex;
 	width:200px;
-    word-wrap: break-word;
+	word-wrap: break-word;
+	max-width: 250px;
 }
 
 
 .click-container {
-  background-color: rgba(221, 160, 221, 0.39);
- 
+  background-color: rgba(221, 160, 221, 0.123);
+ max-width: 250px;
 }
 
 h3 {
   color: white;
 }
 
+.next-container {
+	max-width: 250px;
+	
+}
 
 
 .answer-choice {
@@ -83,6 +88,11 @@ h3 {
 
 .answer-choice:hover {
 	background-color: rgb(201, 245, 220);
+}
+
+.map-container {
+	left: 0;
+	max-width: 100%;
 }
 
 .full-screen {
