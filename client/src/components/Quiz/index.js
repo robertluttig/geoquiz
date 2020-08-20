@@ -36,57 +36,50 @@ function Quiz() {
 	}
 
 	return (
-		<div className="container mt-5 p-4">
-			<div className="row text-center">
-				<div className="col-sm-12 title-container p-2">
-					<h2 className="continent-heading">{continent}</h2>
+	
+<div className="container mt-5 p-4">
+	<div className="row text-center title-container p-2">
+		<div className="col-sm-12">
+			<h2 className="continent-heading">{continent}</h2>
+		</div>
+	</div>
+	<div className="row pt-5">
+		<div className="col-sm-6">
+			{/* 3 rows of elements */}
+			<div className="row">
+				<p className="question-container">Where is {country}?</p>
+			</div>
+			<div className="row mb-5">
+				<div class="item">
+					<button>
+						Click Your Answer on the map
+						<i class="fa fa-long-arrow-right arrow1" aria-hidden="true"></i>
+					</button>
 				</div>
 			</div>
-			<div className="row pt-5">
-				<div className="col-sm-4">
-					<p className="question-container">Where is {country}</p>
-				</div>
-				<div className="col-sm-6 map-container">
-					<Map continent={continent} />
-				</div>
-				<div className="col-sm-3">
-					Click your Answer on the Map
-					<div className="row click-container mb-5">
-						<div id="arrowAnim">
-							<div className="arrowSliding">
-								<div className="arrow"></div>
-							</div>
-							<div className="arrowSliding delay1">
-								<div className="arrow"></div>
-							</div>
-							<div className="arrowSliding delay2">
-								<div className="arrow"></div>
-							</div>
-							<div className="arrowSliding delay3">
-								<div className="arrow"></div>
-							</div>
-						</div>
-					</div>
-					<div className="row next-container m-4 p-5">
-						{questionCount <= 5 ? (
-							<Button
-								type="button"
-								className="btn btn-danger btn-lg"
-								onClick={getRandomCountry}>
-								<h3>NEXT QUESTION</h3>
-							</Button>
-						) : (
-							<Button
-								type="button"
-								className="btn btn-danger btn-lg"
-								href="/results">
-								<h3>VIEW RESULTS</h3>
-							</Button>
-						)}
-					</div>
-				</div>
+			<div className="row next-container m-4 p-5">
+				{questionCount <= 5 ? (
+					<Button
+						type="button"
+						className="btn btn-danger btn-lg"
+						onClick={getRandomCountry}>
+						<h3>NEXT QUESTION</h3>
+					</Button>
+				) : (
+					<Button
+						type="button"
+						className="btn btn-danger btn-lg"
+						href="/results">
+						<h3>VIEW RESULTS</h3>
+					</Button>
+				)}
 			</div>
 		</div>
+		<div className="col-sm-6 map-container">
+			<Map continent={continent} />
+		</div>
+	</div>
+</div>
 	);
 }
 
