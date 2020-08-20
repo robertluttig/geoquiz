@@ -42,11 +42,13 @@ export class MapContainer extends Component {
             }
         );
     }
-    displayMarker(event) {
-        console.log(event)
-        this.markerState.latitue = event.latLng.lat()
-        this.markerState.longitude = event.LatLng.lng()
-    }
+    displayMarker = (mapProps, map, clickEvent) =>  {
+        console.log(clickEvent.latLng.lat())
+        console.log(clickEvent.latLng.lng())
+        this.markerState.latitude = clickEvent.latLng.lat()
+        this.markerState.longitude = clickEvent.latLng.lng()
+        console.log(clickEvent)
+    };
     render() {
         return (
             <Map
@@ -59,7 +61,7 @@ export class MapContainer extends Component {
               lat: this.state.latitude,
               lng: this.state.longitude,
             }}
-                onClick={(e) => this.displayMarker(e)}
+                onClick={this.displayMarker}
             >
                 <Marker position={{ lat: this.markerState.latitude, lng: this.markerState.longitude }} />
             </Map>

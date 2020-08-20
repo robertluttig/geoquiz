@@ -11,7 +11,7 @@
   height: 10px;
   border: 2px solid;
   border-color: black transparent transparent black;
-  transform: rotate(-45deg);
+  transform: rotate(130deg);
 }
 
 
@@ -35,14 +35,14 @@
 }
 
 @-webkit-keyframes slide {
-    0% { opacity:0; transform: translateX(15vw); }	
-   20% { opacity:1; transform: translateX(9vw); }	
-   80% { opacity:1; transform: translateX(-9vw); }	
-  100% { opacity:0; transform: translateX(-15vw); }	
+    0% { opacity:0; transform: translateX(-15vw); }	
+   20% { opacity:1; transform: translateX(-9vw); }	
+   80% { opacity:1; transform: translateX(9vw); }	
+  100% { opacity:0; transform: translateX(15vw); }	
 }
 @keyframes slide {
-    0% { opacity:0; transform: translateX(15vw); }	
-   20% { opacity:1; transform: translateX(9vw); }	
-   80% { opacity:1; transform: translateX(-9vw); }	
-  100% { opacity:0; transform: translateX(-15vw); }	
+    0% { opacity:0; transform: translateX(-15vw); }	
+   20% { opacity:1; transform: translateX(-9vw); }	
+   80% { opacity:1; transform: translateX(9vw); }	
+  100% { opacity:0; transform: translateX(15vw); }	
 }
