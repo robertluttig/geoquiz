@@ -1,4 +1,34 @@
-# Create React Express App
+# GeoQuiz
+
+![](https://github.com/robertluttig/geoquiz/blob/master/demo.gif)
+
+```GeoQuiz is a full stack MERN application that allows users to test their``` ```geographical knowledge by identifying countries on a map. ```
+```This application utilizes React.js, Node, an Express Web Server, and more! ```
+```It is backed by a MongoDB database and allows for the authentication of users``` ```with a folder structure that meets MVC paradigm.```
+
+
+## Table of Contents
+
+* [User-Story](#User-Story)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#Badge)
+* [Contact](#Contact)
+
+
+
+
+
+## User-Story
+```
+As a MIDDLE SCHOOL STUDENT, 
+I WANT an app that tests my geography knowledge 
+SO THAT I can get better at identifying countries on a map.
+WHEN I select a continent from the table
+THEN I am presented with the name of the continent, a map of the continent, and a question is asking for a specific country’s location
+WHEN I complete the quiz
+THEN I am presented with the Results Page which shows which questions I got correct/incorrect and facts for each country
+```
 
 ## About This Boilerplate
 
