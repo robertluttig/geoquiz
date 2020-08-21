@@ -9,12 +9,14 @@ import Button from "react-bootstrap/Button";
 import Map from "../Map/Map";
 
 let quizArr = [];
+let answerList = [];
 
 function Quiz() {
   const continent = useParams().continent;
 
   const [country, setCountry] = useState("");
-  const [questionCount, setQuestionCount] = useState(1);
+  const [questionCount, setQuestionCount] = useState(0);
+  let answerFromMap ={}
 
   const countryArr = useRef(null);
   useEffect(() => {
@@ -23,21 +25,22 @@ function Quiz() {
 
       getRandomCountry();
     });
-
-    //TODO: Make call gto map api to retrieve the map for the given continent
   }, []);
 
   //Retrieving random country from the array to ask the user.
   function getRandomCountry() {
-    console.log(quizArr);
-
-    const randomCountry =
+      const randomCountry =
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
     quizArr.push(randomCountry);
-    console.log(quizArr);
+    answerList.push(answerFromMap);
+    console.log(answerList)
     setCountry(randomCountry);
     setQuestionCount(questionCount + 1);
     //TODO: Add functionality to check for correct answer and record the score
+  }
+
+  const saveResults=(answer)=>{
+    answerFromMap = answer
   }
 
   return (
@@ -91,7 +94,7 @@ function Quiz() {
           </div>
         </div>
         <div className="col-sm-8 map-container p-2">
-          <Map continent={continent} />
+          <Map continent={continent} country={country} saveResult={saveResults}/>
         </div>
       </div>
     </div>
