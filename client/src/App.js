@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+
 function App() {
   return (
     <AuthProvider>
@@ -35,7 +36,7 @@ function App() {
             <ProtectedRoute exact path="/quiz/:continent">
               <Quiz />
             </ProtectedRoute>
-            <ProtectedRoute exact path="/results">
+            <ProtectedRoute exact path="/results/:continent">
               <Results />
             </ProtectedRoute>
           </Switch>
