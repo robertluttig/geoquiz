@@ -40,9 +40,26 @@ export class MapContainer extends Component {
             }
         );
     }
+
+    getAnswer() {
+      Geocode.setApiKey(GOOGLE_MAP_API);
+      Geocode.setLanguage("en");
+      Geocode.fromLatLng(this.state.markerLocation.lat, this.state.markerLocation.lng).then(
+        response => {
+          const address = response.results[0].formatted_address;
+          let addrArr = address.split(",")
+          let country = addrArr[addrArr.length-1]
+          console.log(country);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+  }
+
     displayMarker = (mapProps, map, clickEvent) =>  {
      this.setState({...this.state, markerLocation: {lat:clickEvent.latLng.lat(), lng:clickEvent.latLng.lng()}})
-     
+     this.getAnswer()
     };
     render() {
         return (
