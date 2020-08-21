@@ -39,6 +39,7 @@
     "mongoose": "^5.9.13",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.0",
-    "react-bootstrap": "^1.3.0"
+    "react-bootstrap": "^1.3.0",
+    "sweetalert": "^2.1.2"
   }
 }
