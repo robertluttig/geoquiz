@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
-import "./style.css"
+
 
 const countries = ["Argentina", "Peru", "Brazil", "Colombia", "Venezuela"];
 
