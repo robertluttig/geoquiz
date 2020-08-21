@@ -51,11 +51,11 @@ export class MapContainer extends Component {
           let addrArr = address.split(",")
           let country = addrArr[addrArr.length-1]
           console.log(country);
-          if(country.toLowerCase() === this.props.country.toLowerCase()){
-            answer[this.props.country] = "Correct";
+          if(country.toLowerCase().trim() === this.props.country.toLowerCase().trim()){
+            answer[this.props.country.trim()] = "Correct";
             this.props.saveResult(answer);
           }else{
-            answer[this.props.country] = "Incorrect"
+            answer[this.props.country.trim()] = "Incorrect"
             this.props.saveResult(answer);
           }
         },
