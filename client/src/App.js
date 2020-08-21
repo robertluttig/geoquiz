@@ -35,8 +35,7 @@ function App() {
             <ProtectedRoute exact path="/quiz/:continent">
               <Quiz />
             </ProtectedRoute>
-            <ProtectedRoute exact path="/results/:continent">
-              <Results />
+            <ProtectedRoute exact path="/results/:continent" component={Results}>
             </ProtectedRoute>
           </Switch>
           <Footer />
