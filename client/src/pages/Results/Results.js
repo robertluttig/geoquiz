@@ -5,12 +5,14 @@ import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
 
-const countries = ["Argentina", "Peru", "Brazil", "Colombia", "Venezuela"];
+// const countries = ["Argentina", "Peru", "Brazil", "Colombia", "Venezuela"];
 
 function Results(props) {
   const continent = useParams().continent;
+  const countries = props.location.resultProps.countryList;
+  console.log(countries);
+
   useEffect(() => {
-    console.log("===========", props.location.resultprops);
     const results = [
       {
         Africa: "55",
