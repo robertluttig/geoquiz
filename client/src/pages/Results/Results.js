@@ -3,12 +3,17 @@ import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
 
+
 const countries = ["Argentina", "Peru", "Brazil", "Colombia", "Venezuela"];
 
 function Results() {
   return (
-    <div className="container">
+    <div className="container mt-4 p-4">
+      <div className="row">
+        <div className= "col-sm-12">
       <ResultsHeader continent="South America" />
+      </div>
+      </div>
       <div className="row text-center">
         {countries.map((country) => {
           return <ResultCard key={Math.random()} country={country} />;
