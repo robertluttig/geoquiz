@@ -57,7 +57,7 @@ function Quiz() {
         <div className="col-sm-4">
           {/* 3 rows of elements */}
           <div className="row">
-            {questionCount <= 6 ? (
+            {questionCount <= 5 ? (
               <p className="question-container">Where is {country}?</p>
             ) : (
               <p className="question-container">Quiz Done</p>
