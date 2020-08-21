@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./style.css";
 import "./arrow.css";
 import API from "../../utils/API";
@@ -16,7 +16,7 @@ function Quiz() {
 
   const [country, setCountry] = useState("");
   const [questionCount, setQuestionCount] = useState(0);
-  let answerFromMap ={}
+  let answerFromMap = {};
 
   const countryArr = useRef(null);
   useEffect(() => {
@@ -29,19 +29,19 @@ function Quiz() {
 
   //Retrieving random country from the array to ask the user.
   function getRandomCountry() {
-      const randomCountry =
+    const randomCountry =
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
     quizArr.push(randomCountry);
     answerList.push(answerFromMap);
-    console.log(answerList)
+    console.log(answerList);
     setCountry(randomCountry);
     setQuestionCount(questionCount + 1);
     //TODO: Add functionality to check for correct answer and record the score
   }
 
-  const saveResults=(answer)=>{
-    answerFromMap = answer
-  }
+  const saveResults = (answer) => {
+    answerFromMap = answer;
+  };
 
   return (
     <div className="container mt-5 p-4">
@@ -83,18 +83,23 @@ function Quiz() {
                 <h3>NEXT QUESTION</h3>
               </Button>
             ) : (
-              <Button
-                type="button"
-                className="btn btn-danger btn-lg"
-                href={"/results/" + continent}
+              <Link
+                to={{
+                  pathname: `/results/${continent}`,
+                  resultprops: { countryList: quizArr, resultList: answerList },
+                }}
               >
-                <h3>VIEW RESULTS</h3>
-              </Button>
+                View Results
+              </Link>
             )}
           </div>
         </div>
         <div className="col-sm-8 map-container p-2">
-          <Map continent={continent} country={country} saveResult={saveResults}/>
+          <Map
+            continent={continent}
+            country={country}
+            saveResult={saveResults}
+          />
         </div>
       </div>
     </div>
