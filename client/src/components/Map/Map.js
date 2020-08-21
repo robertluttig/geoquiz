@@ -42,6 +42,7 @@ export class MapContainer extends Component {
     }
 
     getAnswer() {
+      let answer={};
       Geocode.setApiKey(GOOGLE_MAP_API);
       Geocode.setLanguage("en");
       Geocode.fromLatLng(this.state.markerLocation.lat, this.state.markerLocation.lng).then(
@@ -50,6 +51,13 @@ export class MapContainer extends Component {
           let addrArr = address.split(",")
           let country = addrArr[addrArr.length-1]
           console.log(country);
+          if(country.toLowerCase() === this.props.country.toLowerCase()){
+            answer[this.props.country] = "Correct";
+            this.props.saveResult(answer);
+          }else{
+            answer[this.props.country] = "Incorrect"
+            this.props.saveResult(answer);
+          }
         },
         error => {
           console.error(error);
@@ -59,7 +67,7 @@ export class MapContainer extends Component {
 
     displayMarker = (mapProps, map, clickEvent) =>  {
      this.setState({...this.state, markerLocation: {lat:clickEvent.latLng.lat(), lng:clickEvent.latLng.lng()}})
-    // this.getAnswer()
+     this.getAnswer()
     };
     render() {
         return (
