@@ -57,7 +57,11 @@ function Quiz() {
         <div className="col-sm-4">
           {/* 3 rows of elements */}
           <div className="row">
-            <p className="question-container">Where is {country}?</p>
+            {questionCount <= 5 ? (
+              <p className="question-container">Where is {country}?</p>
+            ) : (
+              <p className="question-container">Quiz Done</p>
+            )}
           </div>
           <div className="row mb-5 click-container">
             Click your Answer on the Map
