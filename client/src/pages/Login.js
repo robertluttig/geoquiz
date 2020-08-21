@@ -41,9 +41,9 @@ function Login() {
         // alerting user incorrect username/password
         swal({
           title: "Incorrect Email and/or Password!",
-          text: "Please try again or create a new account",
+          text: "Please try again or create a new account.",
           icon: "warning",
-          button: "Back to LogIn",
+          button: "Back to Log In",
         });
       });
   };

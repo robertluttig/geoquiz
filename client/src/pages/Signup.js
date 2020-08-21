@@ -13,7 +13,7 @@ import Container from "../components/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 function Signup() {
 	const [formState, setFormState] = useState({
@@ -37,7 +37,15 @@ function Signup() {
 				// send them to the login page
 				history.replace("/login");
 			})
-			.catch((err) => alert(err));
+			.catch((err) => {
+				// alerting user incorrect username/password
+				swal({
+					title: "Invalid Email and/or password!",
+					text: "Please enter a valid email address and a strong password to continue.",
+					icon: "warning",
+					button: "Back to Sign Up",
+				});
+			});
 	};
 
 	const handleChange = (event) => {
@@ -49,54 +57,52 @@ function Signup() {
 	};
 
 	return (
-	
-			<div className="container p-3 mt-4">
-				<div className="row">
-					<div className="createAccount col-sm">
-						<Card className="card p-3 text-center" border="dark">
-							<h1>
-								<Badge variant="warning">Create Your Account </Badge>
-							</h1>
-							<Form>
-								<InputGroup
-									id="email"
-									labelText="Email"
-									placeholder="jon.snow@email.com"
-									name="email"
-									type="email"
-									onChange={handleChange}
-								/>
-								<InputGroup
-									id="pwd"
-									labelText="Password"
-									placeholder="p@ssw0Rd!"
-									name="password"
-									type="password"
-									onChange={handleChange}
-								/>
-								<Button
-									onClick={handleFormSubmit}
-									variant="success"
-									size="lg"
-									block>
-									Submit
-								</Button>
-							</Form>
-						</Card>
-					</div>
-					<div className="col-sm">
-						<Card className="card p-3 text-center" border="dark">
-							<h1>
-								<Badge variant="warning">Already a Geoquizer? </Badge>
-							</h1>
-							<Button variant="success" size="lg" block href="/login">
-								Log In Here
+		<div className="container p-3 mt-4">
+			<div className="row">
+				<div className="createAccount col-sm">
+					<Card className="card p-3 text-center" border="dark">
+						<h1>
+							<Badge variant="warning">Create Your Account </Badge>
+						</h1>
+						<Form>
+							<InputGroup
+								id="email"
+								labelText="Email"
+								placeholder="jon.snow@email.com"
+								name="email"
+								type="email"
+								onChange={handleChange}
+							/>
+							<InputGroup
+								id="pwd"
+								labelText="Password"
+								placeholder="p@ssw0Rd!"
+								name="password"
+								type="password"
+								onChange={handleChange}
+							/>
+							<Button
+								onClick={handleFormSubmit}
+								variant="success"
+								size="lg"
+								block>
+								Submit
 							</Button>
-						</Card>
-					</div>
+						</Form>
+					</Card>
+				</div>
+				<div className="col-sm">
+					<Card className="card p-3 text-center" border="dark">
+						<h1>
+							<Badge variant="warning">Already a Geoquizer? </Badge>
+						</h1>
+						<Button variant="success" size="lg" block href="/login">
+							Log In Here
+						</Button>
+					</Card>
 				</div>
 			</div>
-
+		</div>
 	);
 }
 
