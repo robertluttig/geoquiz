@@ -13,6 +13,7 @@ import Container from "../components/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import swal from 'sweetalert';
 
 function Signup() {
 	const [formState, setFormState] = useState({
