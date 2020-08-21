@@ -16,7 +16,7 @@ function Quiz() {
 
   const [country, setCountry] = useState("");
   const [questionCount, setQuestionCount] = useState(0);
-  let answerFromMap ={}
+  let answerFromMap = {};
 
   const countryArr = useRef(null);
   useEffect(() => {
@@ -29,19 +29,19 @@ function Quiz() {
 
   //Retrieving random country from the array to ask the user.
   function getRandomCountry() {
-      const randomCountry =
+    const randomCountry =
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
     quizArr.push(randomCountry);
     answerList.push(answerFromMap);
-    console.log(answerList)
+    console.log(answerList);
     setCountry(randomCountry);
     setQuestionCount(questionCount + 1);
     //TODO: Add functionality to check for correct answer and record the score
   }
 
-  const saveResults=(answer)=>{
-    answerFromMap = answer
-  }
+  const saveResults = (answer) => {
+    answerFromMap = answer;
+  };
 
   return (
     <div className="container mt-5 p-4">
@@ -54,7 +54,11 @@ function Quiz() {
         <div className="col-sm-4">
           {/* 3 rows of elements */}
           <div className="row">
-            <p className="question-container">Where is {country}?</p>
+            {questionCount <= 5 ? (
+              <p className="question-container">Where is {country}?</p>
+            ) : (
+              <p className="question-container">Quiz Done</p>
+            )}
           </div>
           <div className="row mb-5 click-container">
             Click your Answer on the Map
@@ -94,7 +98,11 @@ function Quiz() {
           </div>
         </div>
         <div className="col-sm-8 map-container p-2">
-          <Map continent={continent} country={country} saveResult={saveResults}/>
+          <Map
+            continent={continent}
+            country={country}
+            saveResult={saveResults}
+          />
         </div>
       </div>
     </div>
