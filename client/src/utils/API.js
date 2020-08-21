@@ -20,7 +20,7 @@ export default {
   },
 
   saveResult: function (userId, result) {
-    return axios.get("/api/result", {
+    return axios.post("/api/result", {
       user: userId,
       results: result,
     });
