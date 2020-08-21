@@ -15,7 +15,7 @@ function Quiz() {
   const continent = useParams().continent;
 
   const [country, setCountry] = useState("");
-  const [questionCount, setQuestionCount] = useState(0);
+  const [questionCount, setQuestionCount] = useState(1);
   let answerFromMap = {};
 
   const countryArr = useRef(null);
@@ -31,7 +31,10 @@ function Quiz() {
   function getRandomCountry() {
     const randomCountry =
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
-    quizArr.push(randomCountry);
+    console.log(questionCount);
+    if (questionCount <= 5) {
+      quizArr.push(randomCountry);
+    }
     answerList.push(answerFromMap);
     console.log(answerList);
     setCountry(randomCountry);
@@ -74,7 +77,7 @@ function Quiz() {
             </div>
           </div>
           <div className="row next-container m-4">
-            {questionCount <= 5 ? (
+            {questionCount <= 6 ? (
               <Button
                 type="button"
                 className="btn btn-danger btn-lg"
@@ -86,7 +89,7 @@ function Quiz() {
               <Link
                 to={{
                   pathname: `/results/${continent}`,
-                  resultprops: { countryList: quizArr, resultList: answerList },
+                  resultProps: { countryList: quizArr, resultList: answerList },
                 }}
               >
                 View Results
