@@ -87,8 +87,14 @@ function Quiz() {
                 <h3>NEXT QUESTION</h3>
               </Button>
             ) : (
-              
-              <Link to={{pathname:`/results/${continent}`, resultProps:{countryList:quizArr, resultList:answerList}}}>VIEW RESULTS</Link>
+              <Link
+                to={{
+                  pathname: `/results/${continent}`,
+                  resultprops: { countryList: quizArr, resultList: answerList },
+                }}
+              >
+                View Results
+              </Link>
             )}
           </div>
         </div>
