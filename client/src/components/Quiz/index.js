@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./style.css";
 import "./arrow.css";
 import API from "../../utils/API";
@@ -87,13 +87,8 @@ function Quiz() {
                 <h3>NEXT QUESTION</h3>
               </Button>
             ) : (
-              <Button
-                type="button"
-                className="btn btn-danger btn-lg"
-                href={"/results/" + continent}
-              >
-                <h3>VIEW RESULTS</h3>
-              </Button>
+              
+              <Link to={{pathname:`/results/${continent}`, resultProps:{countryList:quizArr, resultList:answerList}}}>VIEW RESULTS</Link>
             )}
           </div>
         </div>

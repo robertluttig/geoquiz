@@ -9,7 +9,7 @@ import ResultCard from "./ResultCard";
 
 const countries = ["Argentina", "Peru", "Brazil", "Colombia", "Venezuela"];
 
-function Results() {
+function Results(props) {
   const continent = useParams().continent;
   useEffect(() => {
     const results = [{
@@ -20,6 +20,7 @@ function Results() {
       "North America": "90"
 
     }]
+    console.log("===========", props.location.resultProps);
     API.saveResult("5f3af31f92421bade1ab4cf7", results)
   })
   return (
