@@ -40,7 +40,7 @@ function Home() {
     if (results.length !== 0 && results.length !== "undefined") {
       results.map((result) => {
         if (result[continent]) {
-          data = continent + " " + result[continent];
+          data = continent+" Score:" + result[continent];
         } else {
           data = continent;
         }
