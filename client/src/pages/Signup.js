@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
@@ -9,9 +9,6 @@ import "./Signup.css";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Badge from "react-bootstrap/Badge";
-import Container from "../components/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import swal from "sweetalert";
 

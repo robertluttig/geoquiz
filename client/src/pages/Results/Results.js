@@ -10,7 +10,6 @@ import ResultCard from "./ResultCard";
 function Results(props) {
   const continent = useParams().continent;
   const countries = props.location.resultProps.countryList;
-  console.log(countries);
 
   useEffect(() => {
     const results = [
