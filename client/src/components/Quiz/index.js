@@ -16,6 +16,7 @@ function Quiz() {
 
   const [country, setCountry] = useState("");
   const [questionCount, setQuestionCount] = useState(1);
+
   let answerFromMap = {};
 
   const countryArr = useRef(null);
@@ -33,6 +34,7 @@ function Quiz() {
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
     if (questionCount <= 5) {
       quizArr.push(randomCountry);
+      console.log(quizArr);
     }
     answerList.push(answerFromMap);
     setCountry(randomCountry);
@@ -92,6 +94,7 @@ function Quiz() {
                 to={{
                   pathname: `/results/${continent}`,
                   resultProps: { countryList: quizArr, resultList: answerList },
+                  continent: { continent },
                 }}
               >
                 View Results
