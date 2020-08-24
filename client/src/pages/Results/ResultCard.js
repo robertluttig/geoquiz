@@ -2,7 +2,6 @@ import React from "react";
 import ResultsFacts from "./ResultsFacts";
 
 function ResultCard(props) {
-  console.log(props);
 
   return (
     <div className="col-sm-2 title-container p-3 m-3">
