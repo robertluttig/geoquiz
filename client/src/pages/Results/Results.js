@@ -25,8 +25,6 @@ function Results(props) {
     let status = "Incorrect";
     for (let i = 1; i < guessedCountries.length; i++) {
       let countryStatus = guessedCountries[i];
-      console.log("guessedList", guessedCountries);
-      console.log(country, countryStatus[country]);
       if (countryStatus[country] === "Correct") {
         status = "Correct";
         return "Correct";

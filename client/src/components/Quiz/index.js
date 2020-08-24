@@ -34,7 +34,6 @@ function Quiz() {
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
     if (questionCount <= 5) {
       quizArr.push(randomCountry);
-      console.log(quizArr);
     }
     answerList.push(answerFromMap);
     setCountry(randomCountry);
