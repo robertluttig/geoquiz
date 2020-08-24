@@ -23,8 +23,6 @@ export class MapContainer extends Component {
     longitude: 0,
     latitude: 0,
     markerLocation: {},
-    correctCount: 0,
-    incorrectCount: 0,
   };
 
   componentDidMount() {
@@ -41,7 +39,7 @@ export class MapContainer extends Component {
     );
   }
 
-  getAnswer(state) {
+  getAnswer() {
     let answer = {};
     Geocode.setApiKey(GOOGLE_MAP_API);
     Geocode.setLanguage("en");
@@ -53,19 +51,14 @@ export class MapContainer extends Component {
         const address = response.results[0].formatted_address;
         let addrArr = address.split(",");
         let country = addrArr[addrArr.length - 1];
-        console.log(country);
         if (
           country.toLowerCase().trim() ===
           this.props.country.toLowerCase().trim()
         ) {
           answer[this.props.country.trim()] = "Correct";
-          // this.setState({ correctCount: this.state.correctCount + 1 });
-          // console.log("correct", this.state.correctCount);
           this.props.saveResult(answer);
         } else {
           answer[this.props.country.trim()] = "Incorrect";
-          // this.setState({ incorrectCount: this.state.incorrectCount + 1 });
-          // console.log("incorrect", this.state.incorrectCount);
           this.props.saveResult(answer);
         }
       },
@@ -81,6 +74,7 @@ export class MapContainer extends Component {
       markerLocation: {
         lat: clickEvent.latLng.lat(),
         lng: clickEvent.latLng.lng(),
+        label: this.props.country.trim(),
       },
     });
     this.getAnswer();
@@ -100,6 +94,7 @@ export class MapContainer extends Component {
         onClick={this.displayMarker}
       >
         <Marker
+          label={`You chose ${this.state.markerLocation.label} here`}
           position={{
             lat: this.state.markerLocation.lat,
             lng: this.state.markerLocation.lng,

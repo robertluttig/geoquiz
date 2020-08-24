@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
-import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
 
 function Results(props) {
-  const continent = useParams().continent;
+  const continent = Object.values(props.location.continent).toString();
+  console.log(continent);
 
   const countries = props.location.resultProps.countryList;
   const guessedCountries = props.location.resultProps.resultList;
@@ -28,7 +28,7 @@ function Results(props) {
 
   useEffect(() => {
     const results = {
-      Africa: score,
+      Europe: score,
     };
 
     API.saveResult("5f3af6fc6d71950c5ec9502b", results);

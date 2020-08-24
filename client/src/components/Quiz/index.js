@@ -16,8 +16,6 @@ function Quiz() {
 
   const [country, setCountry] = useState("");
   const [questionCount, setQuestionCount] = useState(1);
-  const [correctCount, setCorrectCount] = useState(0);
-  const [incorrectCount, setIncorrectCount] = useState(0);
 
   let answerFromMap = {};
 
@@ -46,7 +44,6 @@ function Quiz() {
 
   const saveResults = (answer) => {
     answerFromMap = answer;
-    // getScore();
   };
 
   return (
@@ -97,6 +94,7 @@ function Quiz() {
                 to={{
                   pathname: `/results/${continent}`,
                   resultProps: { countryList: quizArr, resultList: answerList },
+                  continent: { continent },
                 }}
               >
                 View Results

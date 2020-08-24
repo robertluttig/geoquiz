@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import {Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
 import Button from 'react-bootstrap/Button';
-import Container from "../components/Container";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Card from 'react-bootstrap/Card';
 import './LoginForm.css';
 import swal from 'sweetalert';
 
-const loginStyle = {
+/* const loginStyle = {
   display: "flex",
   justifyContent: "center",
   flexDirection: "column",
   maxWidth: "20rem",
   margin: "0 auto",
-};
+}; */
 
 function Login() {
   const [email, setEmail] = useState("");

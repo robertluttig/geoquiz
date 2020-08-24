@@ -38,11 +38,11 @@ function Home() {
   function generateList(continent) {
     let data = "NO RESULTS TO DISPLAY";
     if (results.length !== 0 && results.length !== "undefined") {
-      results.map((result) => {
+      data= results.map((result) => {
         if (result[continent]) {
-          data = continent+" Score:" + result[continent];
+         return continent+" Score:" + result[continent];
         } else {
-          data = continent;
+          return continent;
         }
       });
     }
