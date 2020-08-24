@@ -7,7 +7,6 @@ function ResultsFacts({ country }) {
   // API call to get the facts about a given country
   function getFacts() {
     API.getCountryFacts(country).then((res) => {
-      console.log(res);
       setFacts(res.data);
     });
   }

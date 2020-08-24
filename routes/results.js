@@ -45,7 +45,6 @@ const resultDataToUpdate = (data, req) => {
     const objKey = Object.keys(obj);
     //checking for key match irrespective of case
     if (objKey[0].toLowerCase() === continent[0].toLowerCase()) {
-      console.log("continent present");
       //Both the objects uses same key with diffrent cases, so refering the objects with respective key
       obj[objKey] = req.body.results[continent];
       isContnentPresent = true;

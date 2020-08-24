@@ -48,22 +48,9 @@ export class MapContainer extends Component {
       this.state.markerLocation.lng
     ).then(
       (response) => {
-        console.log(response)
-      //  const address = response.results[0].formatted_address;
+       
         const country = response.results[response.results.length-1].formatted_address;
-        console.log(country)
-/*         let addrArr = address.split(",");
-        let country = addrArr[addrArr.length - 1];
-        console.log("country",country)
-        if(country.trim() === "USA"){
-          console.log("Inside USA")
-          country = "United States"
-        }
-        if(country.trim() === "UK"){
-          console.log("Inside UK")
-          console.log("country",country)
-          country = "United Kingdom"
-        } */
+        
         if (
           country.toLowerCase().trim() ===
           this.props.country.toLowerCase().trim()
