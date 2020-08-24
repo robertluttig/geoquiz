@@ -40,7 +40,13 @@ function Results(props) {
     let results = {};
     results[continent] = score;
 
-    API.saveResult(user.id, results);
+    API.saveResult(user.id, results)
+      .then((res) => {
+        console.log("Results saved successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [user.id, score]);
   return (
     <div className="container mt-4 p-4">
