@@ -36,15 +36,19 @@ function Home() {
   }, [user]);
 
   function generateList(continent) {
-    let data = "NO RESULTS TO DISPLAY";
+    let data = "Continent Not Found";
     if (results.length !== 0 && results.length !== "undefined") {
-      data= results.map((result) => {
-        if (result[continent]) {
-         return continent+" Score:" + result[continent];
-        } else {
-          return continent;
-        }
-      });
+      for (let i=0;i< results.length;i++){
+        console.log("continent",continent)
+        let result = results[i];
+          if(result.hasOwnProperty(continent)){  
+            data = "Continent Found"        
+            return continent+" Score:" + result[continent];
+          }
+      }
+    }
+    if(data === "Continent Not Found"){
+      data = continent
     }
     return data;
   }
@@ -68,7 +72,7 @@ function Home() {
                           key={continent}
                           href={queryString}
                         >
-                          <ListGroup.Item variant="success">
+                          <ListGroup.Item  key={continent} variant="success">
                             {generateList(continent)}
                           </ListGroup.Item>
                         </Button>
