@@ -4,7 +4,6 @@ import API from "../../utils/API";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
-
 function Results(props) {
   const continent = useParams().continent;
 
@@ -20,7 +19,6 @@ function Results(props) {
       incorrect++;
     }
   }
-
   const score = `${(correct / 5) * 100}%`;
 
   function getStatus(country) {
@@ -74,5 +72,4 @@ function Results(props) {
     </div>
   );
 }
-
 export default Results;
