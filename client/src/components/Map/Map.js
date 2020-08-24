@@ -66,7 +66,7 @@ export class MapContainer extends Component {
   }
 
     displayMarker = (mapProps, map, clickEvent) =>  {
-     this.setState({...this.state, markerLocation: {lat:clickEvent.latLng.lat(), lng:clickEvent.latLng.lng(),label:this.props.country.trim()}})
+     this.setState({...this.state,latitude: clickEvent.latLng.lat(), longitude: clickEvent.latLng.lng(), markerLocation: {lat:clickEvent.latLng.lat(), lng:clickEvent.latLng.lng(),label:this.props.country.trim()}})
      this.getAnswer()
     };
     render() {
