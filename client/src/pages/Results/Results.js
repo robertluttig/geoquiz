@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
-
 function Results(props) {
-  const continent = Object.values(props.location.continent).toString();
+  const continent = useParams().continent;
   console.log(continent);
-
   const countries = props.location.resultProps.countryList;
   const guessedCountries = props.location.resultProps.resultList;
   console.log(guessedCountries);
-
   let correct = 0;
   let incorrect = 0;
   for (let i = 1; i < guessedCountries.length; i++) {
@@ -22,16 +20,13 @@ function Results(props) {
     }
     console.log(`Correct: ${correct} Incorrect: ${incorrect}`);
   }
-
   const score = `${(correct / 5) * 100}%`;
   console.log(`Your score is: ${score}`);
-
   useEffect(() => {
-    const results = {
-      Europe: score,
-    };
-
-    API.saveResult("5f3af6fc6d71950c5ec9502b", results);
+    let results = {};
+    results[continent] = score;
+    console.log(results);
+    API.saveResult("5f3af7f57abf340dd9298de0", results);
   });
   return (
     <div className="container mt-4 p-4">
@@ -57,5 +52,4 @@ function Results(props) {
     </div>
   );
 }
-
 export default Results;
