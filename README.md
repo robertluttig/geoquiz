@@ -44,9 +44,9 @@ To run the project locally:
 * Enjoy and learn!
 
 
-## Deployment (Heroku)
+## Deployment
 
-* [View our live app here!](https://afternoon-refuge-25189.herokuapp.com/)
+* [View our live app on Heroku here!](https://geo1quiz.herokuapp.com/)
 
 
 #### Steps for Deploying
