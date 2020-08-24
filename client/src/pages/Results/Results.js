@@ -1,27 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
 
-// const countries = ["Argentina", "Peru", "Brazil", "Colombia", "Venezuela"];
-
 function Results(props) {
   const continent = useParams().continent;
+
   const countries = props.location.resultProps.countryList;
-  console.log(countries);
+  const guessedCountries = props.location.resultProps.resultList;
+  console.log(guessedCountries);
+
+  let correct = 0;
+  let incorrect = 0;
+  for (let i = 1; i < guessedCountries.length; i++) {
+    if (Object.values(guessedCountries[i]).toString() === "Correct") {
+      correct++;
+    } else {
+      incorrect++;
+    }
+    console.log(`Correct: ${correct} Incorrect: ${incorrect}`);
+  }
+
+  const score = `${(correct / 5) * 100}%`;
+  console.log(`Your score is: ${score}`);
 
   useEffect(() => {
-    const results = [
-      {
-        Africa: "55",
-      },
-      {
-        "North America": "90",
-      },
-    ];
-    API.saveResult("5f3af31f92421bade1ab4cf7", results);
+    const results = {
+      Africa: score,
+    };
+
+    API.saveResult("5f3af6fc6d71950c5ec9502b", results);
   });
   return (
     <div className="container mt-4 p-4">

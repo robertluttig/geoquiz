@@ -16,6 +16,9 @@ function Quiz() {
 
   const [country, setCountry] = useState("");
   const [questionCount, setQuestionCount] = useState(1);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [incorrectCount, setIncorrectCount] = useState(0);
+
   let answerFromMap = {};
 
   const countryArr = useRef(null);
@@ -31,12 +34,11 @@ function Quiz() {
   function getRandomCountry() {
     const randomCountry =
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
-    console.log(questionCount);
     if (questionCount <= 5) {
       quizArr.push(randomCountry);
+      console.log(quizArr);
     }
     answerList.push(answerFromMap);
-    console.log(answerList);
     setCountry(randomCountry);
     setQuestionCount(questionCount + 1);
     //TODO: Add functionality to check for correct answer and record the score
@@ -44,6 +46,7 @@ function Quiz() {
 
   const saveResults = (answer) => {
     answerFromMap = answer;
+    // getScore();
   };
 
   return (
