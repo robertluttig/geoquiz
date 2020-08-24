@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
 
 function Results(props) {
-  const continent = Object.values(props.location.continent).toString();
+  const continent = useParams().continent;
   console.log(continent);
 
   const countries = props.location.resultProps.countryList;
@@ -27,11 +28,10 @@ function Results(props) {
   console.log(`Your score is: ${score}`);
 
   useEffect(() => {
-    const results = {
-      Europe: score,
-    };
+    let results = {};
+    results[continent] = score;
 
-    API.saveResult("5f3af6fc6d71950c5ec9502b", results);
+    API.saveResult("5f4337f4de294f0bfce616a3", results);
   });
   return (
     <div className="container mt-4 p-4">
