@@ -94,7 +94,6 @@ function Quiz() {
                 to={{
                   pathname: `/results/${continent}`,
                   resultProps: { countryList: quizArr, resultList: answerList },
-                  continent: { continent },
                 }}
               >
                 View Results
