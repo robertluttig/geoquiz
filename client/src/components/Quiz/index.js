@@ -32,13 +32,16 @@ function Quiz() {
   function getRandomCountry() {
     const randomCountry =
       countryArr.current[Math.floor(Math.random() * countryArr.current.length)];
-    if (questionCount <= 5) {
-      quizArr.push(randomCountry);
-      console.log(quizArr);
+    if (quizArr.includes(randomCountry)) {
+      getRandomCountry();
+    } else {
+      if (questionCount <= 5) {
+        quizArr.push(randomCountry);
+      }
+      answerList.push(answerFromMap);
+      setCountry(randomCountry);
+      setQuestionCount(questionCount + 1);
     }
-    answerList.push(answerFromMap);
-    setCountry(randomCountry);
-    setQuestionCount(questionCount + 1);
     //TODO: Add functionality to check for correct answer and record the score
   }
 

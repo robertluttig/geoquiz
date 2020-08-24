@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
+
 function Results(props) {
+  const { user, logout } = useAuth();
   const continent = useParams().continent;
-  console.log(continent);
   const countries = props.location.resultProps.countryList;
   const guessedCountries = props.location.resultProps.resultList;
-  console.log(guessedCountries);
+
   let correct = 0;
   let incorrect = 0;
   for (let i = 1; i < guessedCountries.length; i++) {
@@ -18,16 +20,34 @@ function Results(props) {
     } else {
       incorrect++;
     }
-    console.log(`Correct: ${correct} Incorrect: ${incorrect}`);
   }
   const score = `${(correct / 5) * 100}%`;
-  console.log(`Your score is: ${score}`);
+
+  function getStatus(country) {
+    let status = "Incorrect";
+    for (let i = 1; i < guessedCountries.length; i++) {
+      let countryStatus = guessedCountries[i];
+      if (countryStatus[country] === "Correct") {
+        status = "Correct";
+        return "Correct";
+      }
+    }
+    if (status === "Incorrect") {
+      return "Incorrect";
+    }
+  }
   useEffect(() => {
     let results = {};
     results[continent] = score;
 
-    API.saveResult("5f4337f4de294f0bfce616a3", results);
-  });
+    API.saveResult(user.id, results)
+      .then((res) => {
+        console.log("Results saved successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [user.id, score]);
   return (
     <div className="container mt-4 p-4">
       <div className="row">
@@ -37,7 +57,13 @@ function Results(props) {
       </div>
       <div className="row text-center">
         {countries.map((country) => {
-          return <ResultCard key={Math.random()} country={country} />;
+          return (
+            <ResultCard
+              key={Math.random()}
+              country={country}
+              status={getStatus(country)}
+            />
+          );
         })}
       </div>
       <div className="row">
