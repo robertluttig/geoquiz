@@ -44,3 +44,7 @@
 .uk-flex {
 	display: flex;
 }
+
+.text-color{
+	color: rgb(128, 128, 131);
+}

@@ -12,7 +12,7 @@ function Footer() {
 	return (
 		<footer className="fixed-bottom footer mt-5 py-3">
 			<div className="uk-flex uk-flex-column pl-5">
-				<div>
+				<div className="text-color">
 					Developed by
 				</div>
                 
@@ -29,7 +29,7 @@ function Footer() {
 								alt="Janani Nagaraj Amutha"
 							/>
 						</a>
-						<div>
+						<div className="text-color">
 							Janani
 							<br />
 							Nagaraj Amutha
@@ -47,7 +47,7 @@ function Footer() {
 								alt="Shelby Anne Rothman"
 							/>
 						</a>
-						<div>
+						<div className="text-color">
 							Shelby
 							<br />
 							Anne Rothman
@@ -65,7 +65,7 @@ function Footer() {
 								alt="Robert Luttig"
 							/>
 						</a>
-						<div>
+						<div className="text-color">
 							Robert
 							<br />
 							Luttig
@@ -83,7 +83,7 @@ function Footer() {
 								alt="Jack Meier"
 							/>
 						</a>
-						<div>
+						<div className="text-color">
 							Jack
 							<br />
 							Meier
