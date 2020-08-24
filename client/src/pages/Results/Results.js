@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
 import Button from "react-bootstrap/Button";
 import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
-function Results(props) {
-  const continent = useParams().continent;
 
+function Results(props) {
+  const { user, logout } = useAuth();
+  const continent = useParams().continent;
   const countries = props.location.resultProps.countryList;
   const guessedCountries = props.location.resultProps.resultList;
 
@@ -25,8 +27,6 @@ function Results(props) {
     let status = "Incorrect";
     for (let i = 1; i < guessedCountries.length; i++) {
       let countryStatus = guessedCountries[i];
-      console.log("guessedList", guessedCountries);
-      console.log(country, countryStatus[country]);
       if (countryStatus[country] === "Correct") {
         status = "Correct";
         return "Correct";
@@ -40,8 +40,8 @@ function Results(props) {
     let results = {};
     results[continent] = score;
 
-    API.saveResult("5f4337f4de294f0bfce616a3", results);
-  });
+    API.saveResult(user.id, results);
+  }, [user.id, score]);
   return (
     <div className="container mt-4 p-4">
       <div className="row">

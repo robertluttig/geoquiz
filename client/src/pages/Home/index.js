@@ -39,7 +39,6 @@ function Home() {
     let data = "Continent Not Found";
     if (results.length !== 0 && results.length !== "undefined") {
       for (let i=0;i< results.length;i++){
-        console.log("continent",continent)
         let result = results[i];
           if(result.hasOwnProperty(continent)){  
             data = "Continent Found"        
