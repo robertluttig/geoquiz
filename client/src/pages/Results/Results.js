@@ -25,8 +25,8 @@ function Results(props) {
   useEffect(() => {
     let results = {};
     results[continent] = score;
-    console.log(results);
-    API.saveResult("5f3af7f57abf340dd9298de0", results);
+
+    API.saveResult("5f4337f4de294f0bfce616a3", results);
   });
   return (
     <div className="container mt-4 p-4">
