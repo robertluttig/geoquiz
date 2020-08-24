@@ -6,10 +6,10 @@ import ResultsHeader from "./ResultsHeader";
 import ResultCard from "./ResultCard";
 function Results(props) {
   const continent = useParams().continent;
-  console.log(continent);
+
   const countries = props.location.resultProps.countryList;
   const guessedCountries = props.location.resultProps.resultList;
-  console.log(guessedCountries);
+
   let correct = 0;
   let incorrect = 0;
   for (let i = 1; i < guessedCountries.length; i++) {
@@ -18,10 +18,24 @@ function Results(props) {
     } else {
       incorrect++;
     }
-    console.log(`Correct: ${correct} Incorrect: ${incorrect}`);
   }
   const score = `${(correct / 5) * 100}%`;
-  console.log(`Your score is: ${score}`);
+
+  function getStatus(country) {
+    let status = "Incorrect";
+    for (let i = 1; i < guessedCountries.length; i++) {
+      let countryStatus = guessedCountries[i];
+      console.log("guessedList", guessedCountries);
+      console.log(country, countryStatus[country]);
+      if (countryStatus[country] === "Correct") {
+        status = "Correct";
+        return "Correct";
+      }
+    }
+    if (status === "Incorrect") {
+      return "Incorrect";
+    }
+  }
   useEffect(() => {
     let results = {};
     results[continent] = score;
@@ -37,7 +51,13 @@ function Results(props) {
       </div>
       <div className="row text-center">
         {countries.map((country) => {
-          return <ResultCard key={Math.random()} country={country} />;
+          return (
+            <ResultCard
+              key={Math.random()}
+              country={country}
+              status={getStatus(country)}
+            />
+          );
         })}
       </div>
       <div className="row">
