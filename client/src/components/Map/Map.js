@@ -17,7 +17,9 @@ var customStyled = [
   },
 ]; //(array shown above)
 
+//Added new API key
 const GOOGLE_MAP_API = "AIzaSyB-pT71b2tWoGD8wt8jarBiYDgXrTs28JE";
+
 export class MapContainer extends Component {
   state = {
     longitude: 0,
